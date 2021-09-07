@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid p-0">
-    <div class="row flex-nowrap m-0">
-      <Navbar />
+    <div class="row m-0">
+      <Navbar class="col-auto" />
       <router-view class="col pt-2 p-0"/>
     </div>
   </div>

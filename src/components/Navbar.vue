@@ -1,5 +1,5 @@
 <template>
-    <div id="navbar" class="col-auto text-white min-vh-100">
+    <div id="navbar" class="col-auto position-fixed text-white min-vh-100">
         <div class="w-100 pt-5">
             <router-link to="/" class="d-inline-block w-100 text-center">
                 <img class="w-50 mb-4" src="../assets/home-icon.png"/> <!-- HERE GOES THE GAME ICON -->
@@ -50,13 +50,15 @@ export default {
 }
 #navbar {
     box-shadow: 0 0 50px grey;
-    position: relative;
     background-image: linear-gradient(to right, rgb(10, 10, 10), rgb(43, 43, 43) 98%);
 }
 #nav a {
     font-size: 1.3em;
     color: white;
     text-decoration: none;
+}
+#nav a:hover{
+    text-shadow: 0 0 10px #000000, 0 0 4px #fbff00;
 }
 #nav a.router-link-exact-active {
   color: #42b983;
