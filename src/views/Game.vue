@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="main-title text-center">ABOUT</h1>
+    <h1 class="main-title text-center">GAME</h1>
   </div>
 </template>
 
