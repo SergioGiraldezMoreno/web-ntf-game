@@ -1,34 +1,34 @@
 <template>
-    <div id="navbar" class="col-auto position-fixed text-white min-vh-100">
-        <div class="w-100 pt-5">
+    <div id="navbar" class="col-auto position-fixed text-white h-100 p-0 px-sm-3">
+        <div class="w-100 pt-2 pt-md-5">
             <router-link to="/" class="d-inline-block w-100 text-center">
-                <img class="w-50 mb-4" src="../assets/home-icon.png"/> <!-- HERE GOES THE GAME ICON -->
+                <img id="home-icon" class="mb-md-4" src="../assets/home-icon.png"/> <!-- HERE GOES THE GAME ICON -->
             </router-link>
         </div>
         <div class="d-flex flex-column align-items-center align-items-sm-start" id="nav">
             <ul class="nav nav-pills flex-column">
-                <li class='py-2 mx-1'>
+                <li class='py-md-2 mx-1'>
                     <router-link to="/game">
                         <img class="icon-sized" src="../assets/swords-icon.png"/>
-                        <span class="d-none d-sm-inline ms-sm-1">GAME</span>
+                        <span class="d-none d-md-inline ms-md-1">GAME</span>
                     </router-link>
                 </li>
-                <li class='py-2 mx-1'>
+                <li class='py-md-2 mx-1'>
                     <router-link to="/market">
-                        <img class="icon-sized" src="../assets/swords-icon.png"/>
-                        <span class="d-none d-sm-inline ms-sm-1">MARKET</span>
+                        <img class="icon-sized" src="../assets/market-icon.png"/>
+                        <span class="d-none d-md-inline ms-md-1">MARKET</span>
                     </router-link>
                 </li>
-                <li class='py-2 mx-1'>
+                <li class='py-md-2 mx-1'>
                     <router-link to="/about">
                         <img class="icon-sized" src="../assets/swords-icon.png"/>
-                        <span class="d-none d-sm-inline ms-sm-1">ABOUT</span>
+                        <span class="d-none d-md-inline ms-md-1">ABOUT</span>
                     </router-link>
                 </li>
-                <li class='py-2 mx-1'>
+                <li class='py-md-2 mx-1'>
                     <router-link to="/contact">
                         <img class="icon-sized" src="../assets/swords-icon.png"/>
-                        <span class="d-none d-sm-inline ms-sm-1">CONTACT</span>
+                        <span class="d-none d-md-inline ms-md-1">CONTACT</span>
                     </router-link>
                 </li>
             </ul>
@@ -44,16 +44,20 @@ export default {
 
 <style scoped>
 
-.icon-sized {
-    width: 40px;
-    height: 40px;
+#home-icon {
+    max-width: 90px;
 }
+
 #navbar {
+    min-width: 60px;
     box-shadow: 0 0 50px grey;
-    background-image: linear-gradient(to right, rgb(10, 10, 10), rgb(43, 43, 43) 98%);
+    background-image: linear-gradient(to right, rgb(10, 10, 10, 0.85), rgb(43, 43, 43, 0.85) 98%);
+}
+#nav li{
+    margin: 5px 0;
 }
 #nav a {
-    font-size: 1.3em;
+    font-size: 1.1em;
     color: white;
     text-decoration: none;
 }

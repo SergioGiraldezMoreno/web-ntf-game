@@ -1,0 +1,52 @@
+.info-box{
+    box-shadow: 0 0 20px grey;
+    background-image: linear-gradient(to right, rgba(10, 10, 10, 0.75), rgb(43, 43, 43, 0.75) 98%);
+    border: solid 2px rgb(37, 36, 22);
+    border-radius: 5px;
+}
+
+.main-div {
+    margin-left: 160px;
+}
+.shining-text{
+    text-shadow: 0 0 10px #000000, 0 0 4px #fbff00;
+}
+
+.shadowed-text{
+    text-shadow: 0 0 10px #000000;
+}
+
+.main-title{
+    font-size: 4rem;
+    font-weight: 730;
+}
+
+.icon-sized {
+    width: 35px;
+    height: 35px;
+}
+
+/* For Mobile */
+@media screen and (max-width: 767px) {
+    #home-icon{
+        height: 30px;
+        width: auto;
+    }
+    .main-div {
+        margin-left: 72px;
+    }
+    .icon-sized {
+        width: 30px;
+        height: 30px;
+    }    
+    .main-title{
+        font-size: 2.8rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .main-div {
+        margin-left: 60px;
+    }
+}
+
