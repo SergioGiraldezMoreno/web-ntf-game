@@ -5,27 +5,36 @@
     border: solid 4px rgb(37, 36, 22);
     border-radius: 5px;
 }
+button{
+    /* background-color: rgb(212, 172, 13); */
+    /* background-image: linear-gradient(to right, rgba(10, 10, 10, 0.75), rgb(43, 43, 43, 0.75)); */
+    background-image: linear-gradient(to right, rgb(99, 76, 0), rgb(187, 143, 0) 90%);
 
+}
 .main-div {
     margin-left: 160px;
 }
 .shining-text{
     text-shadow: 0 0 15px #000000, 0 0 5px #fbff00;
 }
-
 .shadowed-text{
     text-shadow: 0 0 15px #000000;
 }
-
 .main-title{
-    font-size: 5rem;
+    font-size: 8rem;
     font-weight: 730;
 }
-
 .icon-sized {
     width: 25px;
     height: 25px;
 }
+h1, h2, h3 {
+    font-weight: 700;
+}
+.yellow-text{
+    color: rgb(212, 172, 13);
+}
+
 
 /* For Mobile */
 @media screen and (max-width: 767px) {
@@ -41,7 +50,7 @@
         height: 30px;
     }    
     .main-title{
-        font-size: 2.8rem;
+        font-size: 3rem;
     }
 }
 
