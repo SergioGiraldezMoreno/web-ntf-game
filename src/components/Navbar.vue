@@ -10,25 +10,25 @@
                 <li class='py-md-2 mx-1'>
                     <router-link to="/game">
                         <img class="icon-sized" src="../assets/game-icon.png"/>
-                        <span class="d-none d-md-inline ms-md-1">GAME</span>
+                        <span class="align-middle d-none d-md-inline ms-md-2">GAME</span>
                     </router-link>
                 </li>
                 <li class='py-md-2 mx-1'>
                     <router-link to="/market">
                         <img class="icon-sized" src="../assets/market-icon.png"/>
-                        <span class="d-none d-md-inline ms-md-1">MARKET</span>
+                        <span class="align-middle d-none d-md-inline ms-md-2">MARKET</span>
                     </router-link>
                 </li>
                 <li class='py-md-2 mx-1'>
                     <router-link to="/about">
                         <img class="icon-sized" src="../assets/about-icon.png"/>
-                        <span class="d-none d-md-inline ms-md-1">ABOUT</span>
+                        <span class="align-middle d-none d-md-inline ms-md-2">ABOUT</span>
                     </router-link>
                 </li>
                 <li class='py-md-2 mx-1'>
                     <router-link to="/contact">
                         <img class="icon-sized" src="../assets/contact-icon.png"/>
-                        <span class="d-none d-md-inline ms-md-1">CONTACT</span>
+                        <span class="align-middle d-none d-md-inline ms-md-2">CONTACT</span>
                     </router-link>
                 </li>
             </ul>

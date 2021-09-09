@@ -1,16 +1,32 @@
 <template>
     <div id="global-div" class="m-0 p-3 min-vh-100">
-        <div class="main-div row text-white min-vh-100 d-flex align-items-start">
+        <div class="main-div row text-white h-100 d-flex align-items-start text-center">
             <div>
-                <h1 class="main-title shining-text text-start">HOME</h1>
-                <h2 class="shadowed-text">Subtitle madaf***a</h2>
-                <p class="shadowed-text">Yeah man, that's it!</p>
-            </div>
-        </div>
-        <div class="main-div row text-white justify-content-center">
-            <div class="info-box col-10 p-2">
-                <h2 class="shadowed-text">Subtitle again</h2>
-                <p class="shadowed-text">Okey so here is some more text</p>
+                <h1 class="main-title shining-text">HOME</h1>
+                <div class="row d-none d-lg-inline" ><div style="height: 55vh"></div></div>
+                <div class="row equal row-cols-1 row-cols-lg-3 justify-content-center">
+                    <div class="col my-4 my-lg-0">
+                        <div class="p-4 info-box h-100 justify-content-center m-auto d-flex flex-column" style="width: 90%">
+                            <h3>Whitepaper</h3>
+                            <p>All you need to know about the project. The technologies, game dynamics, goals...</p>
+                            <button class="mt-auto">Read more</button>
+                        </div>
+                    </div>
+                    <div class="col my-4 my-lg-0">
+                        <div class="p-4 info-box h-100 justify-content-center m-auto d-flex flex-column" style="width: 90%">
+                            <h3>Roadmap</h3>
+                            <p>All the stages, deadlines and the current status of the project</p>
+                            <button class="mt-auto">Read more</button>
+                        </div>
+                    </div>
+                    <div class="col my-4 my-lg-0">
+                        <div class="p-4 info-box h-100 justify-content-center m-auto d-flex flex-column" style="width: 90%">
+                            <h3>Team</h3>
+                            <p>Get to know all the team members and their background</p>
+                            <button class="mt-auto">Read more</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -19,6 +35,9 @@
 <style scoped>
 
 #global-div {
+  /* background-image: url("../assets/mage-background.jpg"); */
+  /* background-image: url("../assets/spellbook-2-background.jpg"); */
+  /* background-image: url("../assets/spellbook-background.jpg"); */
   background-image: url("../assets/magic-background.jpg");
   background-size: cover;
   background-attachment: fixed;

@@ -1,10 +1,8 @@
 <template>
     <div id="global-div" class="m-0 p-3 min-vh-100">
-        <div class="main-div row text-white d-flex align-items-start">
+        <div class="main-div row text-white min-vh-100 d-flex align-items-start text-center">
             <div>
-                <h1 class="main-title shining-text text-start">ABOUT</h1>
-                <h2 class="shadowed-text">Subtitle madaf***a</h2>
-                <p class="shadowed-text">Yeah man, that's it!</p>
+                <h1 class="main-title shining-text">ABOUT</h1>
             </div>
         </div>
     </div>
