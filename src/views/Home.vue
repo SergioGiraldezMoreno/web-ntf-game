@@ -7,8 +7,8 @@
                     <h2 class="m-0 shining-text">some interesting subtitle</h2>
                     <div class="row justify-content-center m-auto">
                         <div class="col-9">
-                            <button class="w-100 rounded-3 py-2 fs-3 fw-bold">PLAY NOW</button>
-                            <button class="w-100 rounded-3 py-2 fs-3 fw-bold">WHITEPAPER</button>
+                            <button class="mb-1 w-100 rounded-3 py-2 fs-3 fw-bold">PLAY NOW</button>
+                            <button class="mt-1 w-100 rounded-3 py-2 fs-3 fw-bold">WHITEPAPER</button>
                         </div>
                     </div>
                 </div>
