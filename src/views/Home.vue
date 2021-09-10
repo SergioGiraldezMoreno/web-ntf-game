@@ -35,10 +35,7 @@
 <style scoped>
 
 #global-div {
-  /* background-image: url("../assets/mage-background.jpg"); */
-  /* background-image: url("../assets/spellbook-2-background.jpg"); */
-  /* background-image: url("../assets/spellbook-background.jpg"); */
-  background-image: url("../assets/magic-background.jpg");
+  background-image: url("../assets/background5.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;

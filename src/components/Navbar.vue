@@ -65,6 +65,6 @@ export default {
     text-shadow: 0 0 10px #000000, 0 0 4px #fbff00;
 }
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: rgb(187, 143, 0);
 }
 </style>
