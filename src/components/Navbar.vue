@@ -1,38 +1,28 @@
 <template>
-    <div id="navbar" class="col-auto position-fixed text-white h-100 p-0 px-sm-3">
-        <div class="w-100 pt-2 pt-md-5">
-            <router-link to="/" class="d-inline-block w-100 text-center">
-                <img id="home-icon" class="mb-md-4" src="../assets/home-icon.png"/> <!-- HERE GOES THE GAME ICON -->
-            </router-link>
-        </div>
-        <div class="d-flex flex-column align-items-center align-items-sm-start" id="nav">
-            <ul class="nav nav-pills flex-column">
-                <li class='py-md-2 mx-1'>
-                    <router-link to="/game">
-                        <img class="icon-sized" src="../assets/game-icon.png"/>
-                        <span class="align-middle d-none d-md-inline ms-md-2">GAME</span>
-                    </router-link>
-                </li>
-                <li class='py-md-2 mx-1'>
-                    <router-link to="/market">
-                        <img class="icon-sized" src="../assets/market-icon.png"/>
-                        <span class="align-middle d-none d-md-inline ms-md-2">MARKET</span>
-                    </router-link>
-                </li>
-                <li class='py-md-2 mx-1'>
-                    <router-link to="/about">
-                        <img class="icon-sized" src="../assets/about-icon.png"/>
-                        <span class="align-middle d-none d-md-inline ms-md-2">ABOUT</span>
-                    </router-link>
-                </li>
-                <li class='py-md-2 mx-1'>
-                    <router-link to="/contact">
-                        <img class="icon-sized" src="../assets/contact-icon.png"/>
-                        <span class="align-middle d-none d-md-inline ms-md-2">CONTACT</span>
-                    </router-link>
-                </li>
-            </ul>
-        </div>
+    <div class="position-fixed d-flex flex-column align-items-sm-start vh-100 p-0" id="nav">
+        <router-link class="d-inline-block text-center p-lg-2" to="/">
+            <img id="home-icon" src="../assets/home-icon.png"/> <!-- HERE GOES THE GAME ICON -->
+        </router-link>
+        <ul class="p-0 my-auto">
+            <li class='m-0 top-right-border-radius'>
+                <router-link id='game-link' class="d-inline-block h-100 p-3" to="/game">
+                    <img class="icon-sized" src="../assets/game-icon.png"/>
+                    <span id='game-link-text' class="align-middle ps-2 fw-bold">PLAY NOW</span>
+                </router-link>
+            </li>
+            <li class='m-0'>
+                <router-link id='market-link' class="d-inline-block h-100 p-3" to="/market">
+                    <img class="icon-sized" src="../assets/market-icon.png"/>
+                    <span id='market-link-text' class="align-middle ps-2 fw-bold">MARKET PLACE</span>
+                </router-link>
+            </li>
+            <li class='m-0 bottom-right-border-radius'>
+                <router-link id='contact-link' class="d-inline-block h-100 p-3" to="/contact">
+                    <img class="icon-sized" src="../assets/contact-icon.png"/>
+                    <span id='contact-link-text' class="align-middle ps-2 fw-bold">CONTACT</span>
+                </router-link>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -44,17 +34,51 @@ export default {
 
 <style scoped>
 
+#game-link-text {
+    display: none;
+}
+#game-link:hover > #game-link-text {
+    display: inline;
+}
+#market-link-text {
+    display: none;
+}
+#market-link:hover > #market-link-text {
+    display: inline;
+}
+#contact-link-text {
+    display: none;
+}
+#contact-link:hover > #contact-link-text {
+    display: inline;
+}
+@media screen and (max-width: 767px) {
+    #game-link:hover > #game-link-text {
+        display: none;
+    }
+    #market-link:hover > #market-link-text {
+        display: none;
+    }
+    #contact-link:hover > #contact-link-text {
+        display: none;
+    }
+}
 #home-icon {
     max-width: 90px;
 }
-
-#navbar {
-    min-width: 60px;
-    box-shadow: 0 0 50px grey;
-    background-image: linear-gradient(to right, rgb(10, 10, 10, 0.85), rgb(43, 43, 43, 0.85) 98%);
+#nav ul{
+    list-style: none;
 }
-#nav li{
-    margin: 5px 0;
+.top-right-border-radius {
+    border-top-right-radius: 15px;
+}
+.bottom-right-border-radius {
+    border-bottom-right-radius: 15px;
+}
+#nav li {
+    float: left;
+    clear: left;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 #nav a {
     font-size: 1.1em;

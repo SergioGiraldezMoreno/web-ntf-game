@@ -2,7 +2,6 @@
 {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.9);
 	box-shadow: inset 0 0 6px rgba(0,0,0,0.9);
-	/* border-radius: 10px; */
 	background-color: #CCCCCC;
 }
 ::-webkit-scrollbar
@@ -38,13 +37,8 @@ button:hover{
     color: white;
     text-shadow: 0 0 15px #000000, 0 0 5px #fbff00;
 }
-/* button{ */
-    /* background-color: rgb(212, 172, 13); */
-    /* background-image: linear-gradient(to right, rgba(10, 10, 10, 0.75), rgb(43, 43, 43, 0.75)); */
-    /* background-image: linear-gradient(to right, rgb(99, 76, 0), rgb(187, 143, 0) 90%); */
-/* } */
 .main-div {
-    margin-left: 160px;
+    margin-left: 60px;
 }
 .shining-text{
     text-shadow: 0 0 15px #000000, 0 0 5px #fbff00;
@@ -57,8 +51,8 @@ button:hover{
     font-weight: 730;
 }
 .icon-sized {
-    width: 25px;
-    height: 25px;
+    width: 40px;
+    height: 40px;
 }
 h1, h2, h3 {
     font-weight: 700;
@@ -71,24 +65,17 @@ h1, h2, h3 {
 /* For Mobile */
 @media screen and (max-width: 767px) {
     #home-icon{
-        height: 30px;
+        height: 50px;
         width: auto;
     }
     .main-div {
-        margin-left: 72px;
+        margin-left: 40px;
     }
     .icon-sized {
         width: 30px;
         height: 30px;
-    }    
+    }
     .main-title{
         font-size: 3rem;
     }
 }
-
-@media screen and (max-width: 600px) {
-    .main-div {
-        margin-left: 60px;
-    }
-}
-
