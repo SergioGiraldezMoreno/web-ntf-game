@@ -1,7 +1,8 @@
 <template>
     <div class="position-fixed d-flex flex-column align-items-sm-start vh-100 p-0" id="nav">
         <router-link class="d-inline-block text-center p-lg-2" to="/">
-            <img id="home-icon" src="../assets/home-icon.png"/> <!-- HERE GOES THE GAME ICON -->
+            <!-- TODO: ESTE BOTON NO TE LLEVA AL INICIO DE LA PAGINA SI ESTAS YA EN ELLA -->
+            <img id="home-icon" src="../assets/magus-icon.png"/>
         </router-link>
         <ul class="p-0 my-auto">
             <li class='m-0 top-right-border-radius'>

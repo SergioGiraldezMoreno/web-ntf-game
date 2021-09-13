@@ -19,17 +19,29 @@
 											  transparent,
 											  transparent)
 }
+.magus-img-title {
+    width: 50%;
+    max-width: 750px;
+}
+.main-background{
+  background-image: url("../main-background.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
 .info-box{
     box-shadow: 0 0 20px grey;
     background-image: linear-gradient(to right, rgba(10, 10, 10, 0.75), rgb(43, 43, 43, 0.75) 98%);
     border: solid 4px rgb(37, 36, 22);
     border-radius: 5px;
 }
+.info-box:hover{
+    background-image: linear-gradient(to right, rgba(10, 10, 10, 0.9), rgba(22, 22, 22, 0.9) 98%);
+}
 button{
     border: 0px;
     background-color: rgba(238, 238, 238, 0.603);
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.55), rgba(197, 197, 197, 0.45) 98%);
-    /* background-color: rgba(208, 236, 85, 0.603); */
 }
 button:hover{
     background-color: rgba(39, 39, 39, 0.938);
