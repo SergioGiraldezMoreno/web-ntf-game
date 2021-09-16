@@ -34,7 +34,9 @@ export default {
 </script>
 
 <style scoped>
-
+#nav {
+    z-index: 1;
+}
 #game-link-text {
     display: none;
 }

@@ -2,7 +2,7 @@
   <div class="container-fluid p-0">
     <div class="row m-0">
       <Navbar class="col-auto" />
-      <router-view class="col pt-2 p-0 fs-5"/>
+      <router-view class="col p-0 fs-5"/>
     </div>
   </div>
 </template>
