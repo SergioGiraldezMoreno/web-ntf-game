@@ -1,11 +1,12 @@
 <template>
     <div class="m-0 min-vh-100 bg-dark">
         <div id="filter-div" class="position-fixed text-white text-center p-3">
-            <form action="">
+            <form class="d-flex" action="">
+                <!-- skill tier filter -->
                 <div class="p-1" style="border-right: 1px solid white;">
                     <div class="filter-subdiv-check">
                         <input id="attack-checkbox" type="checkbox">
-                        <img class="filter-panel-icon" src="../assets/attack-icon.png" alt="">
+                        <img class="filter-panel-icon" src="../assets/defense-icon.png" alt="">
                     </div>
                     <div class="filter-subdiv-check">
                         <input id="defense-checkbox" type="checkbox">
@@ -13,7 +14,47 @@
                     </div>
                     <div class="filter-subdiv-check">
                         <input id="heal-checkbox" type="checkbox">
-                        <img class="filter-panel-icon" src="../assets/heal-icon.png" alt="">
+                        <img class="filter-panel-icon" src="../assets/defense-icon.png" alt="">
+                    </div>
+                    <div class="filter-subdiv-check">
+                        <input id="defense-checkbox" type="checkbox">
+                        <img class="filter-panel-icon" src="../assets/defense-icon.png" alt="">
+                    </div>
+                    <div class="filter-subdiv-check">
+                        <input id="heal-checkbox" type="checkbox">
+                        <img class="filter-panel-icon" src="../assets/defense-icon.png" alt="">
+                    </div>
+                </div>
+                <div class="p1">
+                    <!-- skill attribute filter -->
+                    <div class="ms-1 d-flex" style="border-bottom: 1px solid white;">
+                        <div class="filter-subdiv-check m-auto">
+                            <input id="-checkbox" type="checkbox">
+                            <img class="filter-panel-icon" src="../assets/attack-icon.png" alt="">
+                        </div>
+                        <div class="filter-subdiv-check m-auto">
+                            <input id="defense-checkbox" type="checkbox">
+                            <img class="filter-panel-icon" src="../assets/defense-icon.png" alt="">
+                        </div>
+                        <div class="filter-subdiv-check m-auto">
+                            <input id="heal-checkbox" type="checkbox">
+                            <img class="filter-panel-icon" src="../assets/heal-icon.png" alt="">
+                        </div>
+                    </div>
+                    <!-- skill type filter -->
+                    <div class="ms-1 d-flex">
+                        <div class="filter-subdiv-check">
+                            <input id="attack-checkbox" type="checkbox">
+                            <img class="filter-panel-icon" src="../assets/attack-icon.png" alt="">
+                        </div>
+                        <div class="filter-subdiv-check">
+                            <input id="defense-checkbox" type="checkbox">
+                            <img class="filter-panel-icon" src="../assets/defense-icon.png" alt="">
+                        </div>
+                        <div class="filter-subdiv-check">
+                            <input id="heal-checkbox" type="checkbox">
+                            <img class="filter-panel-icon" src="../assets/heal-icon.png" alt="">
+                        </div>
                     </div>
                 </div>
             </form>
