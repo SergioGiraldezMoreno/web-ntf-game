@@ -1,10 +1,26 @@
 <template>
     <div class="m-0 min-vh-100 bg-dark">
-        <div id="filter-div" class="position-fixed text-white text-center p-3">Here will go the filtering options</div>
+        <div id="filter-div" class="position-fixed text-white text-center p-3">
+            <form action="">
+                <div class="p-1" style="border-right: 1px solid white;">
+                    <div class="filter-subdiv-check">
+                        <input id="attack-checkbox" type="checkbox">
+                        <img class="filter-panel-icon" src="../assets/attack-icon.png" alt="">
+                    </div>
+                    <div class="filter-subdiv-check">
+                        <input id="defense-checkbox" type="checkbox">
+                        <img class="filter-panel-icon" src="../assets/defense-icon.png" alt="">
+                    </div>
+                    <div class="filter-subdiv-check">
+                        <input id="heal-checkbox" type="checkbox">
+                        <img class="filter-panel-icon" src="../assets/heal-icon.png" alt="">
+                    </div>
+                </div>
+            </form>
+            <!-- <div class="fs-6">Iconos diseñados por <a href="https://www.flaticon.es/autores/good-ware" title="Good Ware">Good Ware</a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a></div> -->
+        </div>
         <div class="container">
             <div id="card-container" class="row d-flex row-cols-1 gy-2">
-            <!-- <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-3 gy-2" style="margin-top: 100px;"> -->
-                <!-- <MarketPlaceCard class="col mx-auto"/> -->
                 <MarketPlaceCard class="col mx-auto"/>
                 <MarketPlaceCard class="col mx-auto"/>
                 <MarketPlaceCard class="col mx-auto"/>
@@ -50,6 +66,19 @@ export default {
 </script>
 
 <style scoped>
+/* .filter-subdiv{
+    border-right: 1px solid white;
+} */
+.filter-subdiv-check{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.filter-panel-icon{
+    /* margin: auto;
+    display: block; */
+    width: 25px;
+}
 #card-container {
     margin-left: 25px;
     margin-right: 15px;
