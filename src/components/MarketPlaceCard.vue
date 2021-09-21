@@ -26,7 +26,7 @@ export default {
     background-image: linear-gradient(to right, rgb(10, 10, 10), rgb(37, 37, 37) 95%);
 }
 .market-card-img {
-    /* border: solid 2px rgb(194, 151, 11); */
+    /* border: solid 2px rgb(194, 151, 11); las imagenes tienen su propio border */
     border-radius: 5px;
     width: 100%;
     height: auto;

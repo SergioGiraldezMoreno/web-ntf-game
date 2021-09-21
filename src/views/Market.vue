@@ -1,30 +1,8 @@
 <template>
     <div class="m-0 min-vh-100 bg-dark">
         <div id="filter-div" class="position-fixed text-white text-center p-3">
+            <p class="p-0 m-0">filter</p>
             <form class="d-flex" action="">
-                <!-- skill tier filter -->
-                <div class="p-1" style="border-right: 1px solid white;">
-                    <div class="filter-subdiv-check">
-                        <input id="attack-checkbox" type="checkbox">
-                        <img class="filter-panel-icon" src="../assets/defense-icon.png" alt="">
-                    </div>
-                    <div class="filter-subdiv-check">
-                        <input id="defense-checkbox" type="checkbox">
-                        <img class="filter-panel-icon" src="../assets/defense-icon.png" alt="">
-                    </div>
-                    <div class="filter-subdiv-check">
-                        <input id="heal-checkbox" type="checkbox">
-                        <img class="filter-panel-icon" src="../assets/defense-icon.png" alt="">
-                    </div>
-                    <div class="filter-subdiv-check">
-                        <input id="defense-checkbox" type="checkbox">
-                        <img class="filter-panel-icon" src="../assets/defense-icon.png" alt="">
-                    </div>
-                    <div class="filter-subdiv-check">
-                        <input id="heal-checkbox" type="checkbox">
-                        <img class="filter-panel-icon" src="../assets/defense-icon.png" alt="">
-                    </div>
-                </div>
                 <div class="p1">
                     <!-- skill attribute filter -->
                     <div class="ms-1 d-flex" style="border-bottom: 1px solid white;">
@@ -118,7 +96,8 @@ export default {
 .filter-panel-icon{
     /* margin: auto;
     display: block; */
-    width: 25px;
+    margin: 2px;
+    width: 20px;
 }
 #card-container {
     margin-left: 25px;
