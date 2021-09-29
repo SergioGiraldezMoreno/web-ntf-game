@@ -1,5 +1,4 @@
 <template>
-    <!-- <div id="global-div" class="m-0 p-3 min-vh-100"> -->
     <div class="main-background m-0 p-3 min-vh-100">
         <div class="main-div row text-white h-100 d-flex align-items-start text-center">
             <div>
@@ -21,7 +20,7 @@
                         </div>
                     </div>
                 </div>
-            
+
                 <div class="row equal row-cols-1 row-cols-lg-3 justify-content-center">
                     <div class="col my-4 my-lg-0">
                         <div class="info-box h-100 justify-content-center m-auto d-flex flex-column" style="width: 90%">
@@ -33,7 +32,7 @@
                     </div>
                     <div class="col my-4 my-lg-0">
                         <div class="info-box h-100 justify-content-center m-auto d-flex flex-column" style="width: 90%">
-                            <a class="p-4 d-block w-100 h-100 text-decoration-none text-white" href="">
+                            <a class="p-4 d-block w-100 h-100 text-decoration-none text-white" href="#roadmap-info">
                                 <h2 class="yellow-text">Roadmap</h2>
                                 <p class="mb-auto">All the information about stages, deadlines and the current status of the project</p>
                             </a>
@@ -41,7 +40,7 @@
                     </div>
                     <div class="col my-4 my-lg-0">
                         <div class="info-box h-100 justify-content-center m-auto d-flex flex-column" style="width: 90%">
-                            <a class="p-4 d-block w-100 h-100 text-decoration-none text-white" href="">
+                            <a class="p-4 d-block w-100 h-100 text-decoration-none text-white" href="#team-info">
                                 <h2 class="yellow-text">Team</h2>
                                 <p class="mb-auto">Get to know all the team members and their background</p>
                             </a>
@@ -63,124 +62,78 @@
                     </div>
                 </div>
 
-                <div id="roadmap-info" class="row mt-5">
+                <div id="roadmap-info" class="row my-5">
                     <h1 class="yellow-text shadowed-text mb-5">ROADMAP</h1>
-                    <div class="container">
-                        <div class="row equal row-cols-1 row-cols-lg-4 justify-content-center">
-                            <div class="col my-4 my-lg-0">
-                                <div class="roadmap-stage-div trans info-box justify-content-center d-flex flex-column p-3">
-                                    <h2 class="yellow-text">Stage 1</h2>
-                                    <h5 class="yellow-text fw-bold">2021 Q3</h5>
-                                    <p class="mb-auto">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    <div class="carousel">
+                        <div class="w-100 py-3 row flex-nowrap overflow-hidden">
+                            <!-- TODO: align items middle when one is expanded -->
+                            <roadmap-node class="col-6 col-md-4 col-xl-3" 
+                                title="Stage 1" date_title="2021 Q3"
+                                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-                                        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col my-4 my-lg-0">
-                                <div class="roadmap-stage-div trans info-box justify-content-center d-flex flex-column p-3">
-                                    <h2 class="yellow-text">Stage 1</h2>
-                                    <h5 class="yellow-text fw-bold">2021 Q3</h5>
-                                    <p class="mb-auto">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                            />
+                            <roadmap-node class="col-6 col-md-4 col-xl-3"
+                                title="Stage 2" date_title="2022 Q1"
+                                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-                                        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col my-4 my-lg-0">
-                                <div class="roadmap-stage-div trans info-box justify-content-center d-flex flex-column p-3">
-                                    <h2 class="yellow-text">Stage 1</h2>
-                                    <h5 class="yellow-text fw-bold">2021 Q3</h5>
-                                    <p class="mb-auto">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                            />
+                            <roadmap-node class="col-6 col-md-4 col-xl-3"
+                                title="Stage 3" date_title="2022 Q2"
+                                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-                                        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col my-4 my-lg-0">
-                                <div class="roadmap-stage-div trans info-box justify-content-center d-flex flex-column p-3">
-                                    <h2 class="yellow-text">Stage 1</h2>
-                                    <h5 class="yellow-text fw-bold">2021 Q3</h5>
-                                    <p class="mb-auto">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                            />
+                            <roadmap-node class="col-6 col-md-4 col-xl-3"
+                                title="Stage 4" date_title="2022 Q3"
+                                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-                                        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col my-4 my-lg-0">
-                                <div class="roadmap-stage-div trans info-box justify-content-center d-flex flex-column p-3">
-                                    <h2 class="yellow-text">Stage 1</h2>
-                                    <h5 class="yellow-text fw-bold">2021 Q3</h5>
-                                    <p class="mb-auto">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                            />
+                            <roadmap-node class="col-6 col-md-4 col-xl-3"
+                                title="Stage 5" date_title="2023 Q1"
+                                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-                                        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col my-4 my-lg-0">
-                                <div class="roadmap-stage-div trans info-box justify-content-center d-flex flex-column p-3">
-                                    <h2 class="yellow-text">Stage 1</h2>
-                                    <h5 class="yellow-text fw-bold">2021 Q3</h5>
-                                    <p class="mb-auto">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-                                        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col my-4 my-lg-0">
-                                <div class="roadmap-stage-div trans info-box justify-content-center d-flex flex-column p-3">
-                                    <h2 class="yellow-text">Stage 1</h2>
-                                    <h5 class="yellow-text fw-bold">2021 Q3</h5>
-                                    <p class="mb-auto">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-                                        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                                    </p>
-                                </div>
-                            </div>
+                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                            />
                         </div>
                     </div>
                 </div>
 
+                <div id="team-info">
+                    <h1 class="yellow-text shadowed-text">INFO ABOUT THE TEAM</h1>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
+<script>
+import RoadmapNode from "../components/RoadmapNode.vue";
+
+export default {
+  name: 'Home',
+  components: {
+    RoadmapNode,
+  },
+}
+</script>
 
 <style scoped>
 
-#whitepaper-info{
+#whitepaper-info {
     color: rgb(61, 32, 12);
     background-image: url("../assets/papiro.png");
     background-size: 100% 100%;
 }
 
-.roadmap-stage-div{
-    width: 90%;
-    height: 100%;
-    border-radius: 100%;
-    margin: auto;
-    overflow: hidden;
+#roadmap-info {
+    min-height: 70vh;
 }
-.roadmap-stage-div:hover{
-    border-radius: 0px;
+
+#team-info {
+    height: 80vh;
 }
-.trans {
-    -webkit-transition: border-radius .5s;
-    transition: border-radius .5s;
-}
+
 </style>
