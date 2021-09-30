@@ -1,11 +1,13 @@
 <template>
     <div class="my-4 my-lg-0">
-        <div class="roadmap-stage-div trans info-box justify-content-center d-flex flex-column p-3"
+        <!-- <div class="trans info-box justify-content-center d-flex flex-column p-3 m-auto"
+            :class="showClass" -->
+        <div class="roadmap-stage-div trans info-box justify-content-center d-flex flex-column p-3 mx-auto"
             @mouseover="hover = true"
             @mouseleave="hover = false">
             <h2 class="display-6 fw-bold yellow-text">{{ title }}</h2>
             <h5 class="yellow-text fw-bold">{{ date_title }}</h5>
-            <p v-if="hover" class="mb-auto">
+            <p v-if="hover || show" class="mb-auto">
                 {{ content }}
             </p>
         </div>
@@ -14,17 +16,25 @@
 
 <script>
 export default {
-  name: "RoadmapNode",
-  props: {
-      title: String,
-      date_title: String,
-      content: String
-  },
-  data() {
-      return {
-          hover: false,
-      }
-  }
+    name: "RoadmapNode",
+    props: {
+        title: String,
+        date_title: String,
+        content: String,
+        // show: { this is for testing (activating one node with code)
+        //     type: Boolean,
+        //     default: false
+        // },
+        // showClass: {
+        //     type: String,
+        //     default: "roadmap-stage-div"
+        // }
+    },
+    data() {
+        return {
+            hover: false,
+        }
+    }
 };
 </script>
 
@@ -34,9 +44,13 @@ export default {
     width: 17vw;
     height: 17vw;
     border-radius: 100%;
-    margin: auto;
     overflow: hidden;
 }
+/* .showdiv {
+    border-radius: 0px;
+    width: 95%;
+    height: auto;
+} */
 .roadmap-stage-div:hover{
     border-radius: 0px;
     width: 95%;

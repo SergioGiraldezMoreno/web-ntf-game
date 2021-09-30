@@ -21,7 +21,7 @@
                     </div>
                 </div>
 
-                <div class="row equal row-cols-1 row-cols-lg-3 justify-content-center">
+                <div class="row equal row-cols-1 row-cols-lg-3 justify-content-center mb-5">
                     <div class="col my-4 my-lg-0">
                         <div class="info-box h-100 justify-content-center m-auto d-flex flex-column" style="width: 90%">
                             <a class="p-4 d-block w-100 h-100 text-decoration-none text-white" href="#whitepaper-info">
@@ -62,43 +62,9 @@
                     </div>
                 </div>
 
-                <div id="roadmap-info" class="row my-5">
-                    <h1 class="yellow-text shadowed-text mb-5">ROADMAP</h1>
-                    <div class="carousel">
-                        <div class="w-100 py-3 row flex-nowrap overflow-hidden">
-                            <!-- TODO: align items middle when one is expanded -->
-                            <roadmap-node class="col-6 col-md-4 col-xl-3" 
-                                title="Stage 1" date_title="2021 Q3"
-                                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                            />
-                            <roadmap-node class="col-6 col-md-4 col-xl-3"
-                                title="Stage 2" date_title="2022 Q1"
-                                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                            />
-                            <roadmap-node class="col-6 col-md-4 col-xl-3"
-                                title="Stage 3" date_title="2022 Q2"
-                                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                            />
-                            <roadmap-node class="col-6 col-md-4 col-xl-3"
-                                title="Stage 4" date_title="2022 Q3"
-                                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                            />
-                            <roadmap-node class="col-6 col-md-4 col-xl-3"
-                                title="Stage 5" date_title="2023 Q1"
-                                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                            />
-                        </div>
-                    </div>
+                <div id="roadmap-info" class="row mt-5">
+                    <h1 class="yellow-text shadowed-text">ROADMAP</h1>
+                    <roadmap-carousel class="mt-3"/>
                 </div>
 
                 <div id="team-info">
@@ -111,10 +77,12 @@
 
 <script>
 import RoadmapNode from "../components/RoadmapNode.vue";
+import RoadmapCarousel from "../components/RoadmapCarousel.vue";
 
 export default {
   name: 'Home',
   components: {
+    RoadmapCarousel,
     RoadmapNode,
   },
 }
