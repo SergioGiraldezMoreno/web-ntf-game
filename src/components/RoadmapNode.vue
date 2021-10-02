@@ -1,7 +1,5 @@
 <template>
-    <div class="my-4 my-lg-0">
-        <!-- <div class="trans info-box justify-content-center d-flex flex-column p-3 m-auto"
-            :class="showClass" -->
+    <div>
         <div class="roadmap-stage-div trans info-box justify-content-center d-flex flex-column p-3 mx-auto"
             @mouseover="hover = true"
             @mouseleave="hover = false">
@@ -21,14 +19,6 @@ export default {
         title: String,
         date_title: String,
         content: String,
-        // show: { this is for testing (activating one node with code)
-        //     type: Boolean,
-        //     default: false
-        // },
-        // showClass: {
-        //     type: String,
-        //     default: "roadmap-stage-div"
-        // }
     },
     data() {
         return {
@@ -43,14 +33,10 @@ export default {
 .roadmap-stage-div{
     width: 17vw;
     height: 17vw;
+    min-height: 17vw;
     border-radius: 100%;
     overflow: hidden;
 }
-/* .showdiv {
-    border-radius: 0px;
-    width: 95%;
-    height: auto;
-} */
 .roadmap-stage-div:hover{
     border-radius: 0px;
     width: 95%;

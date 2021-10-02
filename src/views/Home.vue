@@ -76,14 +76,12 @@
 </template>
 
 <script>
-import RoadmapNode from "../components/RoadmapNode.vue";
 import RoadmapCarousel from "../components/RoadmapCarousel.vue";
 
 export default {
   name: 'Home',
   components: {
     RoadmapCarousel,
-    RoadmapNode,
   },
 }
 </script>

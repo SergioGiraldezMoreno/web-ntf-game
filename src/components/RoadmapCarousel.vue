@@ -1,11 +1,18 @@
 <template>
     <div class="carousel">
-        <!-- REPLACE THIS BUTTONS WITH PICTURES -->
-        <button @click="previousStage" class="arrow-icon"><img src="../assets/arrow-left.png"/></button>
-        <button @click="nextStage" class="arrow-icon"><img src="../assets/arrow-right.png"/></button>
-        <div class="w-100 py-3 row flex-nowrap overflow-hidden">
-            <roadmap-node class="col-6 col-md-4 col-xl-3" v-for="stage in stages" :key="stage.id" :ref="'ref-'+stage.id"
-                :title="stage.title" :date_title="stage.date" :content="stage.sumary" />
+        <!-- TODO: REPLACE THIS BUTTONS WITH PICTURES -->
+        <div id="carousel-inner" class="overflow-hidden">
+            <!-- TODO: ADD ANIMATION WHEN MOVING!! (fade the leaving node and move the currently visible then unfade de new node)-->
+            <button @click="previousStage" class="arrow-icon"><img src="../assets/arrow-left.png"/></button>
+            <button @click="nextStage" class="arrow-icon"><img src="../assets/arrow-right.png"/></button>
+            <div class="w-100 py-3 ps-1 m-0 row flex-nowrap" :style="{ left: '-' + currentNodePosition + 'px' }">
+                <div class="col-6 col-md-4 col-xl-3" v-for="stage in stages" :key="stage.id" :ref="'ref_node_'+stage.id">
+                    <div class="row">
+                        <roadmap-node class="col-10 p-0" :title="stage.title" :date_title="stage.date" :content="stage.sumary" />
+                        <img v-if="stage.id != stages.length" class="col-2 arrow-img-carousel" src="../assets/arrow-right.png"/>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -21,6 +28,7 @@ export default {
     data() {
         return {
             currentFirstStageShowingId: 1,
+            // TODO: GET THE STAGES FROM A FILE?
             stages: [{id: 1, title: "Stage 1", date: "2021 Q3", sumary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
                      {id: 2, title: "Stage 2", date: "2022 Q1", sumary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
                      {id: 3, title: "Stage 3", date: "2022 Q2", sumary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
@@ -28,28 +36,51 @@ export default {
                      {id: 5, title: "Stage 5", date: "2023 Q1", sumary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
                      {id: 6, title: "Stage 6", date: "2023 Q2", sumary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
                      {id: 7, title: "Stage 7", date: "2023 Q3", sumary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
-            ]
+                     {id: 8, title: "Future", date: "...", sumary: "Far future developments"},
+            ],
+            currentNodePosition: 0
         }
+    },
+    created() {
+        window.addEventListener('resize', this.updateCurrentNodePosition);
+        this.updateCurrentNodePosition();
+    },
+    destroyed() {
+        window.removeEventListener('resize', this.updateCurrentNodePosition);
     },
     methods: {
         previousStage(clickEvent) {
-
+            if (this.currentFirstStageShowingId > 1) {
+                this.currentFirstStageShowingId -= 1
+                this.updateCurrentNodePosition()
+            }
         },
         nextStage(clickEvent) {
-            var node = this.$refs['ref-' + this.currentFirstStageShowingId];
             if (this.currentFirstStageShowingId+1 <= this.stages.length) {
                 this.currentFirstStageShowingId += 1
+                this.updateCurrentNodePosition()
             }
-            console.log('current first node:' + this.currentFirstStageShowingId)
-            // NOW I NEED TO UPDATE THE CSS PROPERTY (RIGHT: ) SO THE ELEMENTS SHOWN ARE THE CORRECT ONES
+        },
+        updateCurrentNodePosition() {
+            var node = this.$refs['ref_node_1'];
+            if (node == null) {
+                return 0
+            }
+            let carouselNodeWidth = this.$refs.ref_node_1.clientWidth;
+            var currentPosition = (this.currentFirstStageShowingId - 1) * carouselNodeWidth;
+            this.currentNodePosition = currentPosition
         }
     }
 };
 </script>
 
 <style scoped>
+
 .carousel {
-    height: 70vh;
+    height: 50vh;
+}
+#carousel-inner div{
+    position: relative;
 }
 .arrow-icon {
     border-radius: 100%;
@@ -61,4 +92,22 @@ export default {
     height: 100%;
     width: auto;
 }
+.arrow-img-carousel {
+    margin-top: 6vw;
+    height: 5vw;
+    max-height: 70px;
+}
+@media screen and (max-width: 1199px) {
+    .arrow-img-carousel{
+        margin-top: 9vw;
+        height: 7vw;
+    }
+}
+@media screen and (max-width: 767px) {
+    .arrow-img-carousel{
+        margin-top: 14vw;
+        height: 9vw;
+    }
+}
+
 </style>
