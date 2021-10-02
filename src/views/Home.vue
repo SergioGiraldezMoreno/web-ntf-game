@@ -49,7 +49,8 @@
                 </div>
 
                 <div id="whitepaper-info" class="container p-5 vh-100">
-                    <!-- <div class="m-auto w-75 mt-3 mt-lg-5 pt-0 pt-lg-5 overflow-hidden"> -->
+                    <!-- TODO: FOR THE MOBILE VERSION JUST ADD A REDIRECT BUTTON -->
+                    <!-- TODO: REMOVE THE SCROLLBAR AND JUST LEAVE THE ARROWS! -->
                     <div class="mx-auto w-75 overflow-auto">
                         <h1>WHITEPAPER</h1>
                         <p class="fs-4 fw-bold">Here will go all the whitepaper info, maybe with some info in sliders, 

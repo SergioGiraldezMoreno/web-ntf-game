@@ -58,4 +58,10 @@ export default {
         height: 35vw;
     }
 }
+@media screen and (max-width: 575px) {
+    .roadmap-stage-div{
+        width: 55vw;
+        height: 55vw;
+    }
+}
 </style>
