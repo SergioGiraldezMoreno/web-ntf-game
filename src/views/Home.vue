@@ -49,7 +49,8 @@
                 </div>
 
                 <div id="whitepaper-info" class="container p-5 vh-100">
-                    <div class="m-auto w-75 mt-5 pt-5">
+                    <!-- <div class="m-auto w-75 mt-3 mt-lg-5 pt-0 pt-lg-5 overflow-hidden"> -->
+                    <div class="mx-auto w-75 overflow-auto">
                         <h1>WHITEPAPER</h1>
                         <p class="fs-4 fw-bold">Here will go all the whitepaper info, maybe with some info in sliders, 
                             each slider talking about a particular topic. (la animacion entre las paginas podria ser un
@@ -58,6 +59,18 @@
                         <p class="fs-4 fw-bold">
                             Deberia haber un boton para moverte entre sliders (alguna forma de indice tambien para navegar mas rapido)
                             y un boton (link) al whitepaper completo o para descargarlo
+                        </p>
+                        <p class="fs-4 fw-bold">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                        <p class="fs-4 fw-bold">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                        <p class="fs-4 fw-bold">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </p>
                     </div>
                 </div>
@@ -93,7 +106,32 @@ export default {
     background-image: url("../assets/papiro.png");
     background-size: 100% 100%;
 }
-
+#whitepaper-info ::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.4);
+	background-color: #cccccc42;
+}
+#whitepaper-info ::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #f5f5f52a;
+}
+#whitepaper-info ::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #8d5c008a;
+	background-image: -webkit-linear-gradient(90deg,
+											  transparent,
+											  rgba(0, 0, 0, 0) 50%,
+											  transparent,
+											  transparent)
+}
+#whitepaper-info div{
+    margin-top: 8vh;
+    margin-bottom: 8vh;
+    height: 80%;
+}
 #roadmap-info {
     min-height: 70vh;
 }
@@ -101,5 +139,14 @@ export default {
 #team-info {
     height: 80vh;
 }
+
+@media screen and (max-height: 500px) {
+    #whitepaper-info div{
+        margin-top: 6vh;
+        margin-bottom: 6vh;
+        height: 85%;
+    }
+}
+
 
 </style>
