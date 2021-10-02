@@ -3,13 +3,15 @@
         <!-- TODO: REPLACE THIS BUTTONS WITH PICTURES -->
         <div id="carousel-inner" class="overflow-hidden">
             <!-- TODO: ADD ANIMATION WHEN MOVING!! (fade the leaving node and move the currently visible then unfade de new node)-->
-            <button @click="previousStage" class="arrow-icon"><img src="../assets/arrow-left.png"/></button>
-            <button @click="nextStage" class="arrow-icon"><img src="../assets/arrow-right.png"/></button>
-            <div class="w-100 py-3 ps-1 m-0 row flex-nowrap" :style="{ left: '-' + currentNodePosition + 'px' }">
-                <div class="col-6 col-md-4 col-xl-3" v-for="stage in stages" :key="stage.id" :ref="'ref_node_'+stage.id">
+            <button @click="previousStage" :disabled="currentFirstStageShowingId == 1" 
+                class="arrow-icon"><img class="pe-2" src="../assets/arrow-left.png"/></button>
+            <button @click="nextStage" :disabled="currentFirstStageShowingId == stages.length"
+                class="arrow-icon"><img class="ps-2" src="../assets/arrow-right.png"/></button>
+            <div class="w-100 py-3 ps-0 ps-sm-1 m-0 row flex-nowrap" :style="{ left: '-' + currentNodePosition + 'px' }">
+                <div class="col-12 col-sm-6 col-md-4 col-xl-3" v-for="stage in stages" :key="stage.id" :ref="'ref_node_'+stage.id">
                     <div class="row">
-                        <roadmap-node class="col-10 p-0" :title="stage.title" :date_title="stage.date" :content="stage.sumary" />
-                        <img v-if="stage.id != stages.length" class="col-2 arrow-img-carousel" src="../assets/arrow-right.png"/>
+                        <roadmap-node class="col-12 col-sm-10 p-0" :title="stage.title" :date_title="stage.date" :content="stage.sumary" />
+                        <img v-if="stage.id != stages.length" class="d-none d-sm-block col-2 arrow-img-carousel" src="../assets/arrow-right.png"/>
                     </div>
                 </div>
             </div>
@@ -49,13 +51,13 @@ export default {
         window.removeEventListener('resize', this.updateCurrentNodePosition);
     },
     methods: {
-        previousStage(clickEvent) {
+        previousStage() {
             if (this.currentFirstStageShowingId > 1) {
                 this.currentFirstStageShowingId -= 1
                 this.updateCurrentNodePosition()
             }
         },
-        nextStage(clickEvent) {
+        nextStage() {
             if (this.currentFirstStageShowingId+1 <= this.stages.length) {
                 this.currentFirstStageShowingId += 1
                 this.updateCurrentNodePosition()
