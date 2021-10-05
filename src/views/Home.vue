@@ -1,5 +1,7 @@
 <template>
     <div class="main-background m-0 p-3 min-vh-100">
+        <!-- REMEMBER! WALLPAPER LINK! -->
+        <!-- https://www.wallpaperflare.com/grim-reaper-standing-on-cliff-digital-wallpaper-landscape-digital-art-wallpaper-uyw/download/1920x1080 -->
         <div class="main-div row text-white h-100 d-flex align-items-start text-center">
             <div>
                 <div class="d-inline d-lg-none row vh-100 pt-5 d-flex flex-column">
@@ -109,24 +111,23 @@ export default {
 }
 #whitepaper-info ::-webkit-scrollbar-track
 {
-	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
-	box-shadow: inset 0 0 6px rgba(0,0,0,0.4);
-	background-color: #cccccc42;
+    display: none;
+}
+#whitepaper-info ::-webkit-scrollbar-button:single-button {
+    /* TODO: ADD BACKGROUND IMG */
+    background-color: #bbbbbb;
+    border-style: solid;
+    height: 13px;
+    width: 16px;
 }
 #whitepaper-info ::-webkit-scrollbar
 {
-	width: 12px;
-	background-color: #f5f5f52a;
+	width: 20px;
+	background-color: #ffffff00;
 }
 #whitepaper-info ::-webkit-scrollbar-thumb
 {
-	border-radius: 10px;
-	background-color: #8d5c008a;
-	background-image: -webkit-linear-gradient(90deg,
-											  transparent,
-											  rgba(0, 0, 0, 0) 50%,
-											  transparent,
-											  transparent)
+    display: none;
 }
 #whitepaper-info div{
     margin-top: 8vh;

@@ -43,11 +43,11 @@ export default {
             currentNodePosition: 0
         }
     },
-    created() {
+    mounted() {
         window.addEventListener('resize', this.updateCurrentNodePosition);
         this.updateCurrentNodePosition();
     },
-    destroyed() {
+    unmounted() {
         window.removeEventListener('resize', this.updateCurrentNodePosition);
     },
     methods: {
