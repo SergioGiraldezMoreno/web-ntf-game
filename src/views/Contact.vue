@@ -7,12 +7,10 @@
                 <form class="container">
                     <div class="mb-3 row">
                         <input type="email" class="form-control" id="email-input" placeholder="your_email@example.com">
-                        <!-- <label class="text-start" for="email-input">Email address</label> -->
                     </div>
                     <div class="mb-3 row">
                         <textarea class="col-12 form-control" id="email-content-input"
                         rows=6 placeholder="Body of the message"/>
-                        <!-- <label class="text-start" for="email-content-input">Email address</label> -->
                     </div>
                     <div class="mb-3">
                         <input type="checkbox" class="form-check-input" id="policies-check">
@@ -37,6 +35,9 @@ form textarea {
 form .form-check-label{
     margin-left: 5px;
     color: white;
+}
+.info-box:hover{
+    background-image: linear-gradient(to right, rgba(10, 10, 10, 0.75), rgb(43, 43, 43, 0.75) 98%);    
 }
 #global-div {
   background-image: url("../assets/magic-background.jpg");

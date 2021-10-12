@@ -52,7 +52,6 @@
 
                 <div id="whitepaper-info" class="container p-5 vh-100">
                     <!-- TODO: FOR THE MOBILE VERSION JUST ADD A REDIRECT BUTTON -->
-                    <!-- TODO: REMOVE THE SCROLLBAR AND JUST LEAVE THE ARROWS! -->
                     <div class="mx-auto w-75 overflow-auto">
                         <h1>WHITEPAPER</h1>
                         <p class="fs-4 fw-bold">Here will go all the whitepaper info, maybe with some info in sliders, 
@@ -114,19 +113,22 @@ export default {
     display: none;
 }
 #whitepaper-info ::-webkit-scrollbar-button:single-button {
-    /* TODO: ADD BACKGROUND IMG */
-    background-color: #bbbbbb;
-    border-style: solid;
-    height: 13px;
-    width: 16px;
+    height: 20px;
+    width: 20px;
 }
-#whitepaper-info ::-webkit-scrollbar
-{
+#whitepaper-info ::-webkit-scrollbar-button:single-button:vertical:decrement {
+    background-image: url("../assets/arrow-up.png");
+    background-size: 100% 100%;
+}
+#whitepaper-info ::-webkit-scrollbar-button:single-button:vertical:increment {
+    background-image: url("../assets/arrow-down.png");
+    background-size: 100% 100%;
+}
+#whitepaper-info ::-webkit-scrollbar {
 	width: 20px;
 	background-color: #ffffff00;
 }
-#whitepaper-info ::-webkit-scrollbar-thumb
-{
+#whitepaper-info ::-webkit-scrollbar-thumb {
     display: none;
 }
 #whitepaper-info div{
@@ -137,11 +139,9 @@ export default {
 #roadmap-info {
     min-height: 70vh;
 }
-
 #team-info {
     height: 80vh;
 }
-
 @media screen and (max-height: 500px) {
     #whitepaper-info div{
         margin-top: 6vh;
@@ -149,6 +149,5 @@ export default {
         height: 85%;
     }
 }
-
 
 </style>
