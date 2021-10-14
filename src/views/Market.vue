@@ -23,7 +23,7 @@
                     <div class="ms-1 d-flex">
                         <div class="filter-subdiv-check">
                             <input id="attack-checkbox" type="checkbox">
-                            <img class="filter-panel-icon" src="../assets/attack-icon.png" alt="">
+                            <img class="filter-panel-icon" src="../assets/icon-blood.png" alt="">
                         </div>
                         <div class="filter-subdiv-check">
                             <input id="defense-checkbox" type="checkbox">

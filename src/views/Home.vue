@@ -111,8 +111,7 @@ export default {
     background-image: url("../assets/papiro.png");
     background-size: 100% 100%;
 }
-#whitepaper-info ::-webkit-scrollbar-track
-{
+#whitepaper-info ::-webkit-scrollbar-track {
     display: none;
 }
 #whitepaper-info ::-webkit-scrollbar-button:single-button {
