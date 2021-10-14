@@ -82,8 +82,9 @@
                     <roadmap-carousel class="mt-3"/>
                 </div>
 
-                <div id="team-info">
+                <div id="team-info" class="h-100">
                     <h1 class="yellow-text shadowed-text">INFO ABOUT THE TEAM</h1>
+                    <team-panel />
                 </div>
             </div>
         </div>
@@ -92,11 +93,13 @@
 
 <script>
 import RoadmapCarousel from "../components/RoadmapCarousel.vue";
+import TeamPanel from '../components/TeamPanel.vue';
 
 export default {
   name: 'Home',
   components: {
     RoadmapCarousel,
+    TeamPanel,
   },
 }
 </script>
