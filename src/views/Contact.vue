@@ -17,7 +17,7 @@
                         <label class="form-check-label" for="policies-check">terms of use and privacy policy</label>
                     </div>
                     <!-- TODO: DISABLE IF TERMS OF USE ARE NOT CHECKED -->
-                    <button type="submit" class="px-3 py-1 rounded">Send</button> 
+                    <button type="submit" class="custom-button px-3 py-1 rounded">Send</button> 
                 </form>
             </div>
         </div>

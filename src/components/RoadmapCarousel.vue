@@ -4,9 +4,9 @@
         <div id="carousel-inner" class="overflow-hidden">
             <!-- TODO: ADD ANIMATION WHEN MOVING!! (fade the leaving node and move the currently visible then unfade de new node)-->
             <button @click="previousStage" :disabled="currentFirstStageShowingId == 1" 
-                class="arrow-icon"><img class="pe-2" src="../assets/arrow-left.png"/></button>
+                class="arrow-icon custom-button"><img class="pe-2" src="../assets/arrow-left.png"/></button>
             <button @click="nextStage" :disabled="currentFirstStageShowingId == stages.length"
-                class="arrow-icon"><img class="ps-2" src="../assets/arrow-right.png"/></button>
+                class="arrow-icon custom-button"><img class="ps-2" src="../assets/arrow-right.png"/></button>
             <div class="w-100 py-3 ps-0 ps-sm-1 m-0 row flex-nowrap" :style="{ left: '-' + currentNodePosition + 'px' }">
                 <div class="col-12 col-sm-6 col-md-4 col-xl-3" v-for="stage in stages" :key="stage.id" :ref="'ref_node_'+stage.id">
                     <div class="row">

@@ -38,17 +38,17 @@
 .info-box:hover{
     background-image: linear-gradient(to right, rgba(10, 10, 10, 0.9), rgba(22, 22, 22, 0.9) 98%);
 }
-button{
+.custom-button{
     border: 0px;
     background-color: rgb(255, 189, 7);
 }
-button:hover{
+.custom-button:hover{
     background-color: rgba(39, 39, 39, 0.938);
     background-image: linear-gradient(to right, rgba(10, 10, 10, 0.75), rgb(43, 43, 43, 0.75) 90%);
     color: white;
     text-shadow: 0 0 15px #000000, 0 0 5px #fbff00;
 }
-button:disabled{
+.custom-button:disabled{
     background-color: rgba(39, 39, 39, 0);
     background-image: linear-gradient(to right, rgba(10, 10, 10, 0.4), rgb(43, 43, 43, 0.2) 90%);
     color: white;
