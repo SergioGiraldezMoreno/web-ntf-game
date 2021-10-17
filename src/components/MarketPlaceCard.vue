@@ -1,11 +1,12 @@
 <template>
     <div class="market-card card p-1 text-white">
-        <img src="../assets/fire-skill.png" class="market-card-img" alt="...">
+        <img :src="require('@/'+skill.img)" class="market-card-img" alt="...">
+        <!-- <img :src="skill.img" class="market-card-img" alt="..."> -->
+        <!-- <img src="../assets/fire-skill.png" class="market-card-img" alt="..."> -->
         <div class="card-body text-center">
-            <p class="market-card-title fs-4 fw-bold">Skill name</p>
+            <p class="market-card-title fs-4 fw-bold">{{skill.name}}</p>
             <p class="market-card-text fs-6">
-                Detail one of the Skill
-                Detail two of the Skill
+                {{skill.description}}
             </p>
             <a href="#" class="btn fw-bold card-button">Buy (999$)</a>
         </div>
@@ -14,7 +15,10 @@
 
 <script>
 export default {
-  name: "MarketPlaceCard",
+    name: "MarketPlaceCard",
+    props: {
+        skill: Object
+    }
 };
 </script>
 
