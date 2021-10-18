@@ -1,63 +1,64 @@
 <template>
     <div class="m-0 min-vh-100 bg-dark">
-        <div id="filter-div" class="position-fixed text-white text-center p-3">
+        <div id="filter-div" class="position-fixed text-white text-center px-3 pt-3">
             <div class="d-flex">
                 <!-- TODO: USE THE DATA FIELD TO CONTROL THE FILTER -->
-                <div class="border-end pe-1">
-                    <button class="filter-button">
+                <div v-if="showFilter" class="border-end pe-1">
+                    <button @click="revertFilter('blood')" class="filter-button">
                         <img class="filter-panel-icon" src="../assets/blood-icon.png" alt="">
                     </button>
-                    <button class="filter-button">
+                    <button @click="revertFilter('holy')" class="filter-button">
                         <img class="filter-panel-icon" src="../assets/holy-icon.png" alt="">
                     </button>
-                    <button class="filter-button">
+                    <button @click="revertFilter('venom')" class="filter-button">
                         <img class="filter-panel-icon" src="../assets/venom-icon.png" alt="">
                     </button>
-                    <button class="filter-button">
+                    <button @click="revertFilter('shadow')" class="filter-button">
                         <img class="filter-panel-icon" src="../assets/shadow-icon.png" alt="">
                     </button>
                 </div>
-                <div class="px-1">
-                    <button class="filter-button">
+                <div v-if="showFilter" class="px-1">
+                    <button @click="revertFilter('attack')" class="filter-button">
                         <img class="filter-panel-icon" src="../assets/attack-icon.png" alt="">
                     </button>
-                    <button class="filter-button">
+                    <button @click="revertFilter('defense')" class="filter-button">
                         <img class="filter-panel-icon" src="../assets/defense-icon.png" alt="">
                     </button>
-                    <button class="filter-button">
+                    <button @click="revertFilter('heal')" class="filter-button">
                         <img class="filter-panel-icon" src="../assets/heal-icon.png" alt="">
                     </button>
                 </div>
-                <div class="border-start ps-1">
-                    <button class="filter-button">
+                <div v-if="showFilter" class="border-start ps-1">
+                    <button @click="revertFilter('copper')" class="filter-button">
                         <img class="filter-panel-icon" src="../assets/copper-icon.png" alt="">
                     </button>
-                    <button class="filter-button">
+                    <button @click="revertFilter('silver')" class="filter-button">
                         <img class="filter-panel-icon" src="../assets/silver-icon.png" alt="">
                     </button>
-                    <button class="filter-button">
+                    <button @click="revertFilter('gold')" class="filter-button">
                         <img class="filter-panel-icon" src="../assets/gold-icon.png" alt="">
                     </button>
-                    <button class="filter-button">
+                    <button @click="revertFilter('ruby')" class="filter-button">
                         <img class="filter-panel-icon" src="../assets/ruby-icon.png" alt="">
                     </button>
-                    <button class="filter-button">
+                    <button @click="revertFilter('obsidiana')" class="filter-button">
                         <img class="filter-panel-icon" src="../assets/obsidiana-icon.png" alt="">
                     </button>
                 </div>
             </div>
-            <button class="p-0 m-0">
-                <img id="hide-filter-img" src="../assets/double-arrow-up.png" alt="">
+            <div v-if="!showFilter" class="d-flex pb-1">
+                <p class="col my-auto">Filters</p>
+                <button @click="showFilter = true" id="hide-filter-button" class="p-0 m-0">
+                    <img id="hide-filter-img" src="../assets/arrow_down.png" alt="">
+                </button>
+            </div>
+            <button v-if="showFilter" @click="showFilter = false" id="hide-filter-button" class="p-0 m-0">
+                <img id="hide-filter-img" src="../assets/arrow_up.png" alt="">
             </button>
-            <!-- TODO: ADD BUTTON TO SHOW AND HIDE THE FILTER PANEL! -->
         </div>
         <div class="container">
-            <!-- TODO: FIX THE DISPLAY OF THIS, SOMETHING IS WRONG WITH THE COLS AND THE DISPLAY FLEX -->
             <div id="card-container" class="row d-flex row-cols-1 gy-2">
                 <MarketPlaceCard v-for="skill in getFilteredSkills()" :key="skill.name" :skill="skill" />
-                <!-- <MarketPlaceCard class="col mx-auto"/>
-                <MarketPlaceCard class="col mx-auto"/>
-                <MarketPlaceCard class="col mx-auto"/> -->
             </div>
         </div>
     </div>
@@ -72,18 +73,18 @@ export default {
         MarketPlaceCard,
     },
     data() {
-        //   TODO: USE THIS DATA TO CREATE THE FILTER DIV AND ENABLE AND DISABLE THE ICONS!
         return {
+            showFilter: true,
             filters: [{id: 1, name: "venom", group: "attribute", img: "../assets/venom-icon.png", active: false},
                 {id: 2, name: "holy", group: "attribute", img: "../assets/holy-icon.png", active: false},
-                {id: 3, name: "shadow", group: "attribute", img: "../assets/shadow-icon.png", active: true},
+                {id: 3, name: "shadow", group: "attribute", img: "../assets/shadow-icon.png", active: false},
                 {id: 4, name: "blood", group: "attribute", img: "../assets/blood-icon.png", active: false},
                 {id: 5, name: "attack", group: "type", img: "../assets/attack-icon.png", active: false},
                 {id: 6, name: "defense", group: "type", img: "../assets/defense-icon.png", active: false},
                 {id: 7, name: "heal", group: "type", img: "../assets/heal-icon.png", active: false},
                 {id: 8, name: "copper", group: "tier", img: "../assets/copper-icon.png", active: false},
                 {id: 9, name: "silver", group: "tier", img: "../assets/silver-icon.png", active: false},
-                {id: 10, name: "gold", group: "tier", img: "../assets/gold-icon.png", active: true},
+                {id: 10, name: "gold", group: "tier", img: "../assets/gold-icon.png", active: false},
                 {id: 11, name: "ruby", group: "tier", img: "../assets/ruby-icon.png", active: false},
                 {id: 12, name: "obsidiana", group: "tier", img: "../assets/obsidiana-icon.png", active: false}],
             skills: []
@@ -95,36 +96,34 @@ export default {
     methods: {
         loadSkillsData() {
             // this will be a call to an API or a DB the skills may have more info (ID for example)
-            var skillsLoaded = [{id: 1, name: "Skill 1", attribute: "venom", type: "defense", tier: "copper", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 2, name: "Skill 2", attribute: "venom", type: "attack", tier: "gold", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 3, name: "Skill 3", attribute: "shadow", type: "defense", tier: "copper", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
+            var skillsLoaded = [{id: 1, name: "Skill 1", attribute: "venom", type: "defense", tier: "copper", img: "assets/marco_holy_copper.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 2, name: "Skill 2", attribute: "venom", type: "attack", tier: "gold", img: "assets/marco_blood_gold.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 3, name: "Skill 3", attribute: "shadow", type: "defense", tier: "copper", img: "assets/marco_holy_copper.png", description: "Detail one of the Skill Detail two of the Skill"},
                 {id: 4, name: "Skill 4", attribute: "holy", type: "attack", tier: "obsidiana", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 5, name: "Skill 5", attribute: "venom", type: "heal", tier: "gold", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 6, name: "Skill 6", attribute: "holy", type: "defense", tier: "copper", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 7, name: "Skill 7", attribute: "blood", type: "defense", tier: "gold", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 8, name: "Skill 8", attribute: "venom", type: "attack", tier: "copper", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 9, name: "Skill 9", attribute: "shadow", type: "defense", tier: "copper", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 5, name: "Skill 5", attribute: "venom", type: "heal", tier: "gold", img: "assets/marco_blood_gold.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 6, name: "Skill 6", attribute: "holy", type: "defense", tier: "copper", img: "assets/marco_holy_copper.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 7, name: "Skill 7", attribute: "blood", type: "defense", tier: "gold", img: "assets/marco_blood_gold.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 8, name: "Skill 8", attribute: "venom", type: "attack", tier: "copper", img: "assets/marco_holy_copper.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 9, name: "Skill 9", attribute: "shadow", type: "defense", tier: "copper", img: "assets/marco_holy_copper.png", description: "Detail one of the Skill Detail two of the Skill"},
                 {id: 10, name: "Skill 10", attribute: "shadow", type: "attack", tier: "obsidiana", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 11, name: "Skill 11", attribute: "holy", type: "attack", tier: "silver", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 12, name: "Skill 12", attribute: "blood", type: "heal", tier: "silver", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 13, name: "Skill 13", attribute: "venom", type: "attack", tier: "silver", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 14, name: "Skill 14", attribute: "blood", type: "defense", tier: "copper", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 15, name: "Skill 15", attribute: "venom", type: "defense", tier: "gold", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 16, name: "Skill 16", attribute: "shadow", type: "heal", tier: "gold", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 17, name: "Skill 17", attribute: "shadow", type: "attack", tier: "gold", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 18, name: "Skill 18", attribute: "holy", type: "defense", tier: "copper", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 19, name: "Skill 19", attribute: "holy", type: "attack", tier: "ruby", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 20, name: "Skill 20", attribute: "venom", type: "heal", tier: "ruby", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 21, name: "Skill 21", attribute: "blood", type: "heal", tier: "copper", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 22, name: "Skill 22", attribute: "venom", type: "defense", tier: "copper", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 23, name: "Skill 23", attribute: "holy", type: "attack", tier: "copper", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 24, name: "Skill 24", attribute: "blood", type: "attack", tier: "silver", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 25, name: "Skill 25", attribute: "venom", type: "attack", tier: "silver", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 26, name: "Skill 26", attribute: "blood", type: "defense", tier: "ruby", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"}]
+                {id: 11, name: "Skill 11", attribute: "holy", type: "attack", tier: "silver", img: "assets/marco_venom_silver.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 12, name: "Skill 12", attribute: "blood", type: "heal", tier: "silver", img: "assets/marco_venom_silver.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 13, name: "Skill 13", attribute: "venom", type: "attack", tier: "silver", img: "assets/marco_venom_silver.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 14, name: "Skill 14", attribute: "blood", type: "defense", tier: "copper", img: "assets/marco_holy_copper.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 15, name: "Skill 15", attribute: "venom", type: "defense", tier: "gold", img: "assets/marco_blood_gold.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 16, name: "Skill 16", attribute: "shadow", type: "heal", tier: "gold", img: "assets/marco_blood_gold.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 17, name: "Skill 17", attribute: "shadow", type: "attack", tier: "gold", img: "assets/marco_blood_gold.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 18, name: "Skill 18", attribute: "holy", type: "defense", tier: "copper", img: "assets/marco_holy_copper.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 19, name: "Skill 19", attribute: "holy", type: "attack", tier: "ruby", img: "assets/marco_holy_ruby.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 20, name: "Skill 20", attribute: "venom", type: "heal", tier: "ruby", img: "assets/marco_holy_ruby.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 21, name: "Skill 21", attribute: "blood", type: "heal", tier: "copper", img: "assets/marco_holy_copper.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 22, name: "Skill 22", attribute: "venom", type: "defense", tier: "copper", img: "assets/marco_holy_copper.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 23, name: "Skill 23", attribute: "holy", type: "attack", tier: "copper", img: "assets/marco_holy_copper.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 24, name: "Skill 24", attribute: "blood", type: "attack", tier: "silver", img: "assets/marco_venom_silver.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 25, name: "Skill 25", attribute: "venom", type: "attack", tier: "silver", img: "assets/marco_venom_silver.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 26, name: "Skill 26", attribute: "blood", type: "defense", tier: "ruby", img: "assets/marco_holy_ruby.png", description: "Detail one of the Skill Detail two of the Skill"}]
 
-            // console.log(skillsLoaded)
             this.skills = skillsLoaded
-            // console.log(this.skills)
         },
         getFilteredSkills() {
             var finalSkillsList = this.skills;
@@ -214,6 +213,13 @@ export default {
                 }
             }
             return activeFilters
+        },
+        revertFilter(filterName) {
+            for (let filterId in this.filters) {
+                if (this.filters[filterId].name == filterName) {
+                    this.filters[filterId].active = !this.filters[filterId].active
+                }
+            }
         }
     }
 }
@@ -233,6 +239,10 @@ export default {
 .filter-panel-icon{
     margin: 2px;
     width: 40px;
+}
+#hide-filter-button {
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px;
 }
 #hide-filter-img {
     width: 40px;
