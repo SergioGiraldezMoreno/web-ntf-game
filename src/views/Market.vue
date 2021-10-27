@@ -2,47 +2,46 @@
     <div class="m-0 min-vh-100 bg-dark">
         <div id="filter-div" class="position-fixed text-white text-center px-3 pt-3">
             <div class="d-flex">
-                <!-- TODO: USE THE DATA FIELD TO CONTROL THE FILTER -->
                 <div v-if="showFilter" class="border-end pe-1">
                     <button @click="revertFilter('blood')" class="filter-button">
-                        <img class="filter-panel-icon" src="../assets/blood-icon.png" alt="">
+                        <img :class="{disabled_filter: shouldBeDisabled('blood')}" class="filter-panel-icon" src="../assets/blood-icon.png" alt="">
                     </button>
                     <button @click="revertFilter('holy')" class="filter-button">
-                        <img class="filter-panel-icon" src="../assets/holy-icon.png" alt="">
+                        <img :class="{disabled_filter: shouldBeDisabled('holy')}" class="filter-panel-icon" src="../assets/holy-icon.png" alt="">
                     </button>
                     <button @click="revertFilter('venom')" class="filter-button">
-                        <img class="filter-panel-icon" src="../assets/venom-icon.png" alt="">
+                        <img :class="{disabled_filter: shouldBeDisabled('venom')}" class="filter-panel-icon" src="../assets/venom-icon.png" alt="">
                     </button>
                     <button @click="revertFilter('shadow')" class="filter-button">
-                        <img class="filter-panel-icon" src="../assets/shadow-icon.png" alt="">
+                        <img :class="{disabled_filter: shouldBeDisabled('shadow')}" class="filter-panel-icon" src="../assets/shadow-icon.png" alt="">
                     </button>
                 </div>
                 <div v-if="showFilter" class="px-1">
                     <button @click="revertFilter('attack')" class="filter-button">
-                        <img class="filter-panel-icon" src="../assets/attack-icon.png" alt="">
+                        <img :class="{disabled_filter: shouldBeDisabled('attack')}" class="filter-panel-icon" src="../assets/attack-icon.png" alt="">
                     </button>
                     <button @click="revertFilter('defense')" class="filter-button">
-                        <img class="filter-panel-icon" src="../assets/defense-icon.png" alt="">
+                        <img :class="{disabled_filter: shouldBeDisabled('defense')}" class="filter-panel-icon" src="../assets/defense-icon.png" alt="">
                     </button>
                     <button @click="revertFilter('heal')" class="filter-button">
-                        <img class="filter-panel-icon" src="../assets/heal-icon.png" alt="">
+                        <img :class="{disabled_filter: shouldBeDisabled('heal')}" class="filter-panel-icon" src="../assets/heal-icon.png" alt="">
                     </button>
                 </div>
                 <div v-if="showFilter" class="border-start ps-1">
                     <button @click="revertFilter('copper')" class="filter-button">
-                        <img class="filter-panel-icon" src="../assets/copper-icon.png" alt="">
+                        <img :class="{disabled_filter: shouldBeDisabled('copper')}" class="filter-panel-icon" src="../assets/copper-icon.png" alt="">
                     </button>
                     <button @click="revertFilter('silver')" class="filter-button">
-                        <img class="filter-panel-icon" src="../assets/silver-icon.png" alt="">
+                        <img :class="{disabled_filter: shouldBeDisabled('silver')}" class="filter-panel-icon" src="../assets/silver-icon.png" alt="">
                     </button>
                     <button @click="revertFilter('gold')" class="filter-button">
-                        <img class="filter-panel-icon" src="../assets/gold-icon.png" alt="">
+                        <img :class="{disabled_filter: shouldBeDisabled('gold')}" class="filter-panel-icon" src="../assets/gold-icon.png" alt="">
                     </button>
                     <button @click="revertFilter('ruby')" class="filter-button">
-                        <img class="filter-panel-icon" src="../assets/ruby-icon.png" alt="">
+                        <img :class="{disabled_filter: shouldBeDisabled('ruby')}" class="filter-panel-icon" src="../assets/ruby-icon.png" alt="">
                     </button>
                     <button @click="revertFilter('obsidiana')" class="filter-button">
-                        <img class="filter-panel-icon" src="../assets/obsidiana-icon.png" alt="">
+                        <img :class="{disabled_filter: shouldBeDisabled('obsidiana')}" class="filter-panel-icon" src="../assets/obsidiana-icon.png" alt="">
                     </button>
                 </div>
             </div>
@@ -95,7 +94,7 @@ export default {
     },
     methods: {
         loadSkillsData() {
-            // this will be a call to an API or a DB the skills may have more info (ID for example)
+            // this will be a call to an API or a DB the skills may have more info
             var skillsLoaded = [{id: 1, name: "Skill 1", attribute: "venom", type: "defense", tier: "copper", img: "assets/marco_holy_copper.png", description: "Detail one of the Skill Detail two of the Skill"},
                 {id: 2, name: "Skill 2", attribute: "venom", type: "attack", tier: "gold", img: "assets/marco_blood_gold.png", description: "Detail one of the Skill Detail two of the Skill"},
                 {id: 3, name: "Skill 3", attribute: "shadow", type: "defense", tier: "copper", img: "assets/marco_holy_copper.png", description: "Detail one of the Skill Detail two of the Skill"},
@@ -220,12 +219,51 @@ export default {
                     this.filters[filterId].active = !this.filters[filterId].active
                 }
             }
+        },
+        shouldBeDisabled(filterName) {
+            for (let filterId in this.filters) {
+                var filter = this.filters[filterId]
+                if (filter.name == filterName) {
+                    var activeRelatedFilters = [];
+                    for (let filterRelatedId in this.filters){
+                        var relatedFilter = this.filters[filterRelatedId]
+                        if ((relatedFilter.name != filter.name) & (relatedFilter.group == filter.group) & relatedFilter.active) {
+                            activeRelatedFilters.push(relatedFilter)
+                        }
+                    }
+                    if (activeRelatedFilters.length > 0){ 
+                        return !this.filters[filterId].active
+                    }
+                    return false
+                }
+            }
         }
     }
 }
 </script>
 
 <style scoped>
+
+.disabled_filter {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+}
+
+.disabled_filter:hover {
+    -webkit-filter: none;
+    -moz-filter: none;
+    -ms-filter: none;
+    -o-filter: none;
+    filter: none;
+    filter: none;
+    filter: none;
+}
+
+
 .filter-button {
     width: auto;
     height: auto;

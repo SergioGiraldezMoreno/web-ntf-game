@@ -5,7 +5,7 @@
         <div class="main-div row text-white h-100 d-flex align-items-start text-center">
             <div>
                 <div class="d-inline d-lg-none row vh-100 pt-5 d-flex flex-column">
-                    <img src="../assets/magus.png" alt="">
+                    <img src="../assets/magus-light.png" alt="">
                     <div class="row justify-content-center m-auto">
                         <div class="col-9">
                             <button class="custom-button mb-1 w-100 rounded-3 py-2 fs-3 fw-bold">PLAY NOW</button>
