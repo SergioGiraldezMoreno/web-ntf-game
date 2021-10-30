@@ -1,22 +1,19 @@
 <template>
-    <div class="position-fixed d-flex flex-column align-items-sm-end vh-100 p-0" id="nav">
+    <div class="w-auto position-fixed d-flex flex-column align-items-sm-end vh-100 p-0" id="nav">
          <ul class="pb-0 px-0 my-auto" style="padding-top: 90px;">
             <li class='m-0 top-left-border-radius'>
-                <a id='twitter-link' class="d-inline-block h-100 p-3">
-                    <!-- TODO: UPDATE THE ICON! -->
-                    <img class="icon-sized" src="../assets/game-icon.png"/>
+                <a id='twitter-link' class="d-inline-block h-100 p-2">
+                    <img class="media-icon-sized" src="../assets/twitter.png"/>
                 </a>
             </li>
             <li class='m-0'>
-                <a id='instagram-link' class="d-inline-block h-100 p-3">
-                    <!-- TODO: UPDATE THE ICON! -->
-                    <img class="icon-sized" src="../assets/market-icon.png"/>
+                <a id='instagram-link' class="d-inline-block h-100 p-2">
+                    <img class="media-icon-sized" src="../assets/instagram.jpg"/>
                 </a>
             </li>
             <li class='m-0 bottom-left-border-radius'>
-                <a id='linkedin-link' class="d-inline-block h-100 p-3">
-                    <!-- TODO: UPDATE THE ICON! -->
-                    <img class="icon-sized" src="../assets/contact-icon.png"/>
+                <a id='linkedin-link' class="d-inline-block h-100 p-2">
+                    <img class="media-icon-sized" src="../assets/linkedin.png"/>
                 </a>
             </li>
         </ul>
@@ -30,9 +27,14 @@ export default {
 </script>
 
 <style scoped>
-
+#nav {
+    right: 0;    
+}
 #nav ul{
     list-style: none;
+}
+.media-icon-sized {
+    width: 35px;
 }
 .top-left-border-radius {
     border-top-left-radius: 15px;

@@ -1,6 +1,7 @@
 <template>
-    <div class="main-div row text-white d-flex align-items-start text-center p-3">
-        <div class="p-3 m-auto" style="max-width: 1250px">
+    <div class="row text-white d-flex align-items-start text-center p-3">
+        <!-- TABLEN AND PC SIZE -->
+        <div class="d-none d-sm-block p-3 m-auto" style="max-width: 1250px">
             <ul class="nav nav-tabs">
                 <li class="nav-item" role="presentation" style="width:33.33%">
                     <img class="m-2" src="../assets/joan-portrait.png" alt="">
@@ -20,7 +21,7 @@
                 </li>
                 <li class="nav-item" role="presentation" style="width:33.33%">
                     <img class="m-2" src="../assets/sergi-portrait.png" alt="">
-                    <button class="nav-link w-100" id="sergi-tab" 
+                    <button class="nav-link w-100 mt-auto" id="sergi-tab" 
                     data-bs-toggle="tab" data-bs-target="#sergi-info" role="tab" aria-selected="false">
                         <p class="fs-4 fw-bold">Sergi</p>
                         <p class="fs-5">FullStack Dev</p>
@@ -31,14 +32,59 @@
                 <div class="tab-pane fade show active" id="joan-info" role="tabpanel" aria-labelledby="joan-tab">
                     Here will be a brief description of JOAN and his position in the company. Also a bit of his 
                     professional career and studies!
+                    <br>
+                    <a href="">
+                        <img class="media-icon-sized" src="../assets/linkedin.png"/>
+                    </a>
                 </div>
                 <div class="tab-pane fade" id="victor-info" role="tabpanel" aria-labelledby="victor-tab">
                     Here will be a brief description of VICTOR and his position in the company. Also a bit of his 
                     professional career and studies!
+                    <br>
+                    <a href="">
+                        <img class="media-icon-sized" src="../assets/linkedin.png"/>
+                    </a>
                 </div>
                 <div class="tab-pane fade" id="sergi-info" role="tabpanel" aria-labelledby="sergi-tab">
                     Here will be a brief description of SERGI and his position in the company. Also a bit of his 
                     professional career and studies!
+                    <br>
+                    <a href="">
+                        <img class="media-icon-sized" src="../assets/linkedin.png"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- MOBILE SIZE -->
+        <div class="d-sm-none w-100">
+            <div class="info-box p-1 my-2 mx-auto mobile-team-card">
+                <h2>Joan</h2>
+                <img class="w-100 rounded" src="../assets/joan-portrait.png" alt="" />
+                <div class="py-3 px-2">
+                    <h3>Blockchain Dev</h3>
+                    <a href="">
+                        <img class="media-icon-sized" src="../assets/linkedin.png"/>
+                    </a>
+                </div>
+            </div>
+            <div class="info-box p-1 my-2 mx-auto mobile-team-card">
+                <h2>Victor</h2>
+                <img class="w-100 rounded" src="../assets/victor-portrait.png" alt="" />
+                <div class="py-3 px-2">
+                    <h3>Artist & Designer</h3>
+                    <a href="">
+                        <img class="media-icon-sized" src="../assets/linkedin.png"/>
+                    </a>
+                </div>
+            </div>
+            <div class="info-box p-1 my-2 mx-auto w-auto mobile-team-card">
+                <h2>Sergio</h2>
+                <img class="w-100 rounded" src="../assets/sergi-portrait.png" alt="" />
+                <div class="py-3 px-2">
+                    <h3>FullStack Dev</h3>
+                    <a href="">
+                        <img class="media-icon-sized" src="../assets/linkedin.png"/>
+                    </a>
                 </div>
             </div>
         </div>
@@ -46,6 +92,12 @@
 </template>
 
 <style scoped>
+.mobile-team-card {
+    max-width: 300px;
+}
+.media-icon-sized {
+    width: 35px;
+}
 .tab-content, .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
     color: white;
     background-color: rgb(43, 43, 43, 0.75);

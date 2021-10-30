@@ -1,6 +1,6 @@
 <template>
     <div class="m-0 min-vh-100 bg-dark">
-        <div id="filter-div" class="position-fixed text-white text-center px-3 pt-3">
+        <div id="filter-div" class="position-fixed text-white text-center ps-3 pe-2 pe-md-3 pt-1 pt-md-3 rounded-bottom">
             <div class="d-flex">
                 <div v-if="showFilter" class="border-end pe-1">
                     <button @click="revertFilter('blood')" class="filter-button">
