@@ -43,11 +43,15 @@ export default {
                 axios.post(url, payload)
                     .then(res=>{
                         // TODO: SHOW A POPUP MESSAGE THANKING
-                        console.log(res);
+                        var response = JSON.parse(res);
+                        console.log(response);
                     })
                     .catch(err=>{
+                        // TODO: Error 500
                         // TODO: SHOW A POPUP MESSAGE ALERTING
-                        console.log(err);
+                        var response = JSON.parse(err);
+                        console.log(response);
+                        // console.log(err);
                     });
             }
         }
