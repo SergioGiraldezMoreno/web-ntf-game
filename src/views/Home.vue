@@ -8,17 +8,25 @@
                     <img src="../assets/magus-light.png" alt="">
                     <div class="row justify-content-center m-auto">
                         <div class="col-9">
-                            <button class="custom-button mb-1 w-100 rounded-3 py-2 fs-3 fw-bold">PLAY NOW</button>
+                            <router-link to="/game">
+                                <button class="custom-button mb-1 w-100 rounded-3 py-2 fs-3 fw-bold">PLAY NOW</button>
+                            </router-link>
                             <button class="custom-button mt-1 w-100 rounded-3 py-2 fs-3 fw-bold">GET STARTED</button>
                         </div>
                     </div>
                 </div>
                 <div class="d-none d-lg-block row pt-5">
                     <div class="m-auto row vh-100 d-flex flex-column justify-content-center">
-                        <img class="mx-auto magus-img-title" src="../assets/magus.png" alt="">
                         <div class="row justify-content-center">
-                            <button class="custom-button me-1 col-3 rounded-3 p-2 fs-3 fw-bold">PLAY NOW</button>
-                            <button class="custom-button ms-1 col-3 rounded-3 p-2 fs-3 fw-bold">GET STARTED</button>
+                            <img class="mx-auto magus-img-title" src="../assets/magus.png" alt="">
+                        </div>
+                        <div class="row justify-content-center">
+                            <router-link class="me-1 col-3" to="/game">
+                                <button class="custom-button rounded-3 p-2 w-100 fs-3 fw-bold">PLAY NOW</button>
+                            </router-link>
+                            <router-link class="ms-1 col-3" to="/game">
+                                <button class="custom-button rounded-3 w-100 p-2 fs-3 fw-bold">GET STARTED</button>
+                            </router-link>
                         </div>
                     </div>
                 </div>

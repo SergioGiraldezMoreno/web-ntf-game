@@ -1,9 +1,9 @@
 <template>
     <div class="main-background m-0 p-3 min-vh-100">
         <div class="main-div row text-white d-flex align-items-start text-center p-3 h-100">
-            <div class="info-box p-3 m-auto" style="max-width: 950px">
+            <div class="info-box p-1 p-sm-3 m-auto" style="max-width: 950px">
                 <h1 class="shining-text pt-2">Thanks for your interest</h1>
-                <h4 class="pb-2">We will be happy to recieve any suggestion, and solve any doubt!</h4>
+                <h4 class="d-none d-sm-block pb-2">We will be happy to recieve any suggestion, and solve any doubt!</h4>
                 <form class="container" @submit.prevent>
                     <div class="mb-3 row">
                         <input type="email" ref="email" class="form-control" id="email-input" placeholder="your_email@example.com" name="email">
@@ -20,6 +20,12 @@
                 </form>
             </div>
         </div>
+        <div v-if="popup_visible" id="message-popup" class="info-box text-center p-3">
+            <div class="h-100">
+                <h4>{{ popup_text }}</h4>
+                <button @click="hidePopupMessage()" id="popup-button" class="custom-button fs-4 m-auto" >OK</button>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -30,6 +36,8 @@ export default {
     data() {
         return {
             policiesCheck: false,
+            popup_visible: false,
+            popup_text: "",
         }
     },
     methods: {
@@ -42,18 +50,27 @@ export default {
             if (this.$refs.policiesCheck.checked) {
                 axios.post(url, payload)
                     .then(res=>{
-                        // TODO: SHOW A POPUP MESSAGE THANKING
+                        var message = "Thanks a lot for the help, we'll do our best!"
+                        this.showPopupMessage(message)
                         var response = JSON.parse(res);
                         console.log(response);
                     })
                     .catch(err=>{
-                        // TODO: Error 500
-                        // TODO: SHOW A POPUP MESSAGE ALERTING
+                        var message = "Something whent wrong... a notification will be sent to the dev team, sorry for the inconveniences"
+                        this.showPopupMessage(message)
                         var response = JSON.parse(err);
                         console.log(response);
-                        // console.log(err);
+                        console.log(err);
+                        // TODO: Create a log system to store the errors
                     });
             }
+        },
+        showPopupMessage(message) {
+            this.popup_text = message;
+            this.popup_visible = true;
+        },
+        hidePopupMessage() {
+            this.popup_visible = false;
         }
     },
     computed: {
@@ -79,10 +96,23 @@ form .form-check-label{
 .info-box:hover{
     background-image: linear-gradient(to right, rgba(10, 10, 10, 0.75), rgb(43, 43, 43, 0.75) 98%);    
 }
-#global-div {
-  background-image: url("../assets/magic-background.jpg");
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
+#popup-button {
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    width: 80%;
+    border-radius: 5px;
+}
+#message-popup {
+    min-width: 280px;
+    min-height: 180px;
+    max-width: 380px;
+    max-height: 250px;
+    border-radius: 10%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.85);
+    position: fixed;
+    margin: auto;
+    inset: 0;
 }
 </style>

@@ -55,11 +55,64 @@
                 </div>
             </div>
         </div>
+
         <!-- MOBILE SIZE -->
-        <div class="d-sm-none w-100">
+        <div id="team-carousel" class="d-sm-none carousel slide" data-bs-interval="2500" data-bs-ride="carousel">
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="info-box p-1 mx-auto mobile-team-card">
+                        <h2>Joan</h2>
+                        <img class="w-100 rounded" src="../assets/joan-portrait-squared.png" alt="" />
+                        <div class="py-3 px-2">
+                            <h3>Blockchain Dev</h3>
+                            <a href="">
+                                <img class="media-icon-sized" src="../assets/linkedin.png"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="info-box p-1 mx-auto mobile-team-card">
+                        <h2>Victor</h2>
+                        <img class="w-100 rounded" src="../assets/victor-portrait-squared.png" alt="" />
+                        <div class="py-3 px-2">
+                            <h3>Artist & Designer</h3>
+                            <a href="">
+                                <img class="media-icon-sized" src="../assets/linkedin.png"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="info-box p-1 mx-auto w-auto mobile-team-card">
+                        <h2>Sergio</h2>
+                        <img class="w-100 rounded" src="../assets/sergi-portrait-squared.png" alt="" />
+                        <div class="py-3 px-2">
+                            <h3>FullStack Dev</h3>
+                            <a href="">
+                                <img class="media-icon-sized" src="../assets/linkedin.png"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left and right controls/icons -->
+            <button class="carousel-control-prev ps-1" type="button" data-bs-target="#team-carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next pe-1" type="button" data-bs-target="#team-carousel  " data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+
+
+
+        <!-- <div class="d-sm-none w-100">
             <div class="info-box p-1 my-2 mx-auto mobile-team-card">
                 <h2>Joan</h2>
-                <img class="w-100 rounded" src="../assets/joan-portrait.png" alt="" />
+                <img class="w-100 rounded" src="../assets/joan-portrait-squared.png" alt="" />
                 <div class="py-3 px-2">
                     <h3>Blockchain Dev</h3>
                     <a href="">
@@ -69,7 +122,7 @@
             </div>
             <div class="info-box p-1 my-2 mx-auto mobile-team-card">
                 <h2>Victor</h2>
-                <img class="w-100 rounded" src="../assets/victor-portrait.png" alt="" />
+                <img class="w-100 rounded" src="../assets/victor-portrait-squared.png" alt="" />
                 <div class="py-3 px-2">
                     <h3>Artist & Designer</h3>
                     <a href="">
@@ -79,7 +132,7 @@
             </div>
             <div class="info-box p-1 my-2 mx-auto w-auto mobile-team-card">
                 <h2>Sergio</h2>
-                <img class="w-100 rounded" src="../assets/sergi-portrait.png" alt="" />
+                <img class="w-100 rounded" src="../assets/sergi-portrait-squared.png" alt="" />
                 <div class="py-3 px-2">
                     <h3>FullStack Dev</h3>
                     <a href="">
@@ -87,7 +140,7 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 
