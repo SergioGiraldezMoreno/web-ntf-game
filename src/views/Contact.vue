@@ -23,6 +23,7 @@
         <div v-if="popup_visible" id="message-popup" class="info-box text-center p-3">
             <div class="h-100">
                 <h4>{{ popup_text }}</h4>
+                <!-- ADD ICON TO MAKE IT CLEARER -->
                 <button @click="hidePopupMessage()" id="popup-button" class="custom-button fs-4 m-auto" >OK</button>
             </div>
         </div>
@@ -52,15 +53,13 @@ export default {
                     .then(res=>{
                         var message = "Thanks a lot for the help, we'll do our best!"
                         this.showPopupMessage(message)
-                        var response = JSON.parse(res);
-                        console.log(response);
+                        console.log('GOOD server response status: ' + res.status);
+                        // JSON.stringify(res) to show the values
                     })
                     .catch(err=>{
                         var message = "Something whent wrong... a notification will be sent to the dev team, sorry for the inconveniences"
                         this.showPopupMessage(message)
-                        var response = JSON.parse(err);
-                        console.log(response);
-                        console.log(err);
+                        console.log('BAD server response status: ' + err.status);
                         // TODO: Create a log system to store the errors
                     });
             }
@@ -104,8 +103,8 @@ form .form-check-label{
     border-radius: 5px;
 }
 #message-popup {
-    min-width: 280px;
-    min-height: 180px;
+    min-width: 250px;
+    min-height: 100px;
     max-width: 380px;
     max-height: 250px;
     border-radius: 10%;
