@@ -98,13 +98,13 @@ export default {
             var skillsLoaded = [{id: 1, name: "Skill 1", attribute: "venom", type: "defense", tier: "copper", img: "assets/marco_holy_copper.png", description: "Detail one of the Skill Detail two of the Skill"},
                 {id: 2, name: "Skill 2", attribute: "venom", type: "attack", tier: "gold", img: "assets/marco_blood_gold.png", description: "Detail one of the Skill Detail two of the Skill"},
                 {id: 3, name: "Skill 3", attribute: "shadow", type: "defense", tier: "copper", img: "assets/marco_holy_copper.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 4, name: "Skill 4", attribute: "holy", type: "attack", tier: "obsidiana", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 4, name: "Skill 4", attribute: "holy", type: "attack", tier: "obsidiana", img: "assets/marco_holy_obsidiana.png", description: "Detail one of the Skill Detail two of the Skill"},
                 {id: 5, name: "Skill 5", attribute: "venom", type: "heal", tier: "gold", img: "assets/marco_blood_gold.png", description: "Detail one of the Skill Detail two of the Skill"},
                 {id: 6, name: "Skill 6", attribute: "holy", type: "defense", tier: "copper", img: "assets/marco_holy_copper.png", description: "Detail one of the Skill Detail two of the Skill"},
                 {id: 7, name: "Skill 7", attribute: "blood", type: "defense", tier: "gold", img: "assets/marco_blood_gold.png", description: "Detail one of the Skill Detail two of the Skill"},
                 {id: 8, name: "Skill 8", attribute: "venom", type: "attack", tier: "copper", img: "assets/marco_holy_copper.png", description: "Detail one of the Skill Detail two of the Skill"},
                 {id: 9, name: "Skill 9", attribute: "shadow", type: "defense", tier: "copper", img: "assets/marco_holy_copper.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 10, name: "Skill 10", attribute: "shadow", type: "attack", tier: "obsidiana", img: "assets/fire-skill.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 10, name: "Skill 10", attribute: "shadow", type: "attack", tier: "obsidiana", img: "assets/marco_shadow_obsidiana.png", description: "Detail one of the Skill Detail two of the Skill"},
                 {id: 11, name: "Skill 11", attribute: "holy", type: "attack", tier: "silver", img: "assets/marco_venom_silver.png", description: "Detail one of the Skill Detail two of the Skill"},
                 {id: 12, name: "Skill 12", attribute: "blood", type: "heal", tier: "silver", img: "assets/marco_venom_silver.png", description: "Detail one of the Skill Detail two of the Skill"},
                 {id: 13, name: "Skill 13", attribute: "venom", type: "attack", tier: "silver", img: "assets/marco_venom_silver.png", description: "Detail one of the Skill Detail two of the Skill"},
@@ -120,7 +120,8 @@ export default {
                 {id: 23, name: "Skill 23", attribute: "holy", type: "attack", tier: "copper", img: "assets/marco_holy_copper.png", description: "Detail one of the Skill Detail two of the Skill"},
                 {id: 24, name: "Skill 24", attribute: "blood", type: "attack", tier: "silver", img: "assets/marco_venom_silver.png", description: "Detail one of the Skill Detail two of the Skill"},
                 {id: 25, name: "Skill 25", attribute: "venom", type: "attack", tier: "silver", img: "assets/marco_venom_silver.png", description: "Detail one of the Skill Detail two of the Skill"},
-                {id: 26, name: "Skill 26", attribute: "blood", type: "defense", tier: "ruby", img: "assets/marco_holy_ruby.png", description: "Detail one of the Skill Detail two of the Skill"}]
+                {id: 26, name: "Skill 26", attribute: "blood", type: "defense", tier: "ruby", img: "assets/marco_holy_ruby.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 27, name: "Skill 27", attribute: "blood", type: "heal", tier: "obsidiana", img: "assets/marco_blood_obsidiana.png", description: "Detail one of the Skill Detail two of the Skill"}]
 
             this.skills = skillsLoaded
         },
