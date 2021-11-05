@@ -1,8 +1,8 @@
 <template>
     <div class="m-0 min-vh-100 bg-dark">
-        <div id="filter-div" class="position-fixed text-white text-center ps-3 pe-2 pe-md-3 pt-1 pt-md-3 rounded-bottom">
-            <div class="d-flex">
-                <div v-if="showFilter" class="border-end pe-1">
+        <div id="filter-div" class="position-fixed text-white text-center ps-3 pe-2 pe-md-3 rounded-bottom">
+            <div v-if="showFilter" class="d-flex pt-1 pt-md-3 ">
+                <div class="border-end pe-1">
                     <button @click="revertFilter('blood')" class="filter-button">
                         <img :class="{disabled_filter: shouldBeDisabled('blood')}" class="filter-panel-icon" src="../assets/blood-icon.png" alt="">
                     </button>
@@ -16,7 +16,7 @@
                         <img :class="{disabled_filter: shouldBeDisabled('shadow')}" class="filter-panel-icon" src="../assets/shadow-icon.png" alt="">
                     </button>
                 </div>
-                <div v-if="showFilter" class="px-1">
+                <div class="px-1">
                     <button @click="revertFilter('attack')" class="filter-button">
                         <img :class="{disabled_filter: shouldBeDisabled('attack')}" class="filter-panel-icon" src="../assets/attack-icon.png" alt="">
                     </button>
@@ -27,7 +27,7 @@
                         <img :class="{disabled_filter: shouldBeDisabled('heal')}" class="filter-panel-icon" src="../assets/heal-icon.png" alt="">
                     </button>
                 </div>
-                <div v-if="showFilter" class="border-start ps-1">
+                <div class="border-start ps-1">
                     <button @click="revertFilter('copper')" class="filter-button">
                         <img :class="{disabled_filter: shouldBeDisabled('copper')}" class="filter-panel-icon" src="../assets/copper-icon.png" alt="">
                     </button>
