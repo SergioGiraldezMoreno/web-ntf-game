@@ -28,7 +28,7 @@ export default {
 
 <style scoped>
 #nav {
-    right: 0;    
+    right: 0;
 }
 #nav ul{
     list-style: none;

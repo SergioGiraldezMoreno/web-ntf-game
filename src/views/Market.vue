@@ -1,7 +1,10 @@
 <template>
-    <div class="m-0 min-vh-100 bg-dark">
+    <!-- TODO: SEARCH ENGINE, TO LOOK FOR SKILLS BY ITS NAME-->
+    <div class="m-0 min-vh-100 bg-dark pb-2">
         <div id="filter-div" class="position-fixed text-white text-center ps-3 pe-2 pe-md-3 rounded-bottom">
             <div v-if="showFilter" class="d-flex pt-1 pt-md-3 ">
+                <!-- TODO: RESET FILTER -->
+                <!-- TODO: ARROW OF SHOW/HIDE ON THE RIGHT OF THE FILTER DIV -->
                 <div class="border-end pe-1">
                     <button @click="revertFilter('blood')" class="filter-button">
                         <img :class="{disabled_filter: shouldBeDisabled('blood')}" class="filter-panel-icon" src="../assets/blood-icon.png" alt="">
@@ -55,9 +58,28 @@
                 <img id="hide-filter-img" src="../assets/arrow_up.png" alt="">
             </button>
         </div>
-        <div class="container">
-            <div id="card-container" class="row d-flex row-cols-1 gy-2">
-                <MarketPlaceCard v-for="skill in getFilteredSkills()" :key="skill.name" :skill="skill" />
+        <div class="container pb-3">
+            <div id="card-container" class="container">
+                <!-- TODO: MAYBE FOR THE MOBILE VERSION DO A INFINITE SCROLL OR A "CAROUSEL?" -->
+                <div class="row">
+                    <MarketPlaceCard class="col" v-for="skill in getFilteredSkillsByRow(0)" :key="skill.id" :skill="skill" />
+                </div>
+                <div class="row">
+                    <MarketPlaceCard class="col" v-for="skill in getFilteredSkillsByRow(1)" :key="skill.id" :skill="skill" />
+                </div>
+            </div>
+        </div>
+        <div id="pages-carousel" class="w-100">
+            <div class="justify-content-center d-flex">
+                <button @click="previousPage">
+                    <img src="../assets/arrow-left.png"/>
+                </button>
+                <button v-for="number in numberOfPages" @click="currentPage=number" :key="number" :disabled="currentPage == number">
+                    {{number}}
+                </button>
+                <button @click="nextPage">
+                    <img src="../assets/arrow-right.png"/>
+                </button>
             </div>
         </div>
     </div>
@@ -73,7 +95,10 @@ export default {
     },
     data() {
         return {
-            showFilter: true,
+            showFilter: false,
+            currentPage: 1,
+            skillsPerPage: 10,
+            numberOfPages: 1,
             filters: [{id: 1, name: "venom", group: "attribute", img: "../assets/venom-icon.png", active: false},
                 {id: 2, name: "holy", group: "attribute", img: "../assets/holy-icon.png", active: false},
                 {id: 3, name: "shadow", group: "attribute", img: "../assets/shadow-icon.png", active: false},
@@ -91,6 +116,10 @@ export default {
     },
     mounted() {
         this.loadSkillsData()
+        window.addEventListener('resize', this.updatePagesData);
+    },
+    unmounted() {
+        window.removeEventListener('resize', this.updatePagesData);
     },
     methods: {
         loadSkillsData() {
@@ -121,9 +150,65 @@ export default {
                 {id: 24, name: "Skill 24", attribute: "blood", type: "attack", tier: "silver", img: "assets/marco_venom_silver.png", description: "Detail one of the Skill Detail two of the Skill"},
                 {id: 25, name: "Skill 25", attribute: "venom", type: "attack", tier: "silver", img: "assets/marco_venom_silver.png", description: "Detail one of the Skill Detail two of the Skill"},
                 {id: 26, name: "Skill 26", attribute: "blood", type: "defense", tier: "ruby", img: "assets/marco_holy_ruby.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 28, name: "Poisonous punch", attribute: "venom", type: "attack", tier: "ruby", img: "assets/SKILLS/ataqueserpiente_rubi.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 29, name: "Poisonous punch", attribute: "venom", type: "attack", tier: "silver", img: "assets/SKILLS/ataqueserpiente_silver.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 30, name: "Poisonous punch", attribute: "venom", type: "attack", tier: "copper", img: "assets/SKILLS/ataqueserpiente_copper.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 31, name: "Poisonous punch", attribute: "venom", type: "attack", tier: "gold", img: "assets/SKILLS/ataqueserpiente_gold.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 32, name: "Poisonous punch", attribute: "venom", type: "attack", tier: "obsidiana", img: "assets/SKILLS/ataqueserpiente_obsidiana.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 35, name: "Lethal poison", attribute: "venom", type: "attack", tier: "gold", img: "assets/SKILLS/pocionmortal_gold.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 34, name: "Lethal poison", attribute: "venom", type: "attack", tier: "silver", img: "assets/SKILLS/pocionmortal_silver.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 33, name: "Lethal poison", attribute: "venom", type: "attack", tier: "copper", img: "assets/SKILLS/pocionmortal_copper.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 37, name: "Lethal poison", attribute: "venom", type: "attack", tier: "obsidiana", img: "assets/SKILLS/pocionmortal_obsidiana.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 36, name: "Lethal poison", attribute: "venom", type: "attack", tier: "ruby", img: "assets/SKILLS/pocionmortal_rubi.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 41, name: "Vigorous venom", attribute: "venom", type: "defense", tier: "ruby", img: "assets/SKILLS/frascodeveneno_rubi.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 40, name: "Vigorous venom", attribute: "venom", type: "defense", tier: "gold", img: "assets/SKILLS/frascodeveneno_gold.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 38, name: "Vigorous venom", attribute: "venom", type: "defense", tier: "copper", img: "assets/SKILLS/frascodeveneno_copper.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 39, name: "Vigorous venom", attribute: "venom", type: "defense", tier: "silver", img: "assets/SKILLS/frascodeveneno_silver.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 42, name: "Vigorous venom", attribute: "venom", type: "defense", tier: "obsidiana", img: "assets/SKILLS/frascodeveneno_obsidiana.png", description: "Detail one of the Skill Detail two of the Skill"},
                 {id: 27, name: "Skill 27", attribute: "blood", type: "heal", tier: "obsidiana", img: "assets/marco_blood_obsidiana.png", description: "Detail one of the Skill Detail two of the Skill"}]
 
             this.skills = skillsLoaded
+            this.updatePagesData()
+        },
+        updatePagesData() {
+            this.updateSkillsPerPage();
+            this.updateNumberOfPages();
+        },
+        updateSkillsPerPage(){
+            var width = window.innerWidth
+            if (width > 1399) {
+                this.skillsPerPage = 10;
+            } else if (width > 991) {
+                this.skillsPerPage = 8;
+            } else if (width > 767) {
+                this.skillsPerPage = 6;
+            } else if (width > 575) {
+                this.skillsPerPage = 4;
+            } else {
+                this.skillsPerPage = 2;
+            }
+        },
+        updateNumberOfPages(){
+            var currentListOfSkills = this.getFilteredSkills();
+            var numPages = (currentListOfSkills.length / this.skillsPerPage);
+            if (numPages % 1 == 0) {
+                this.numberOfPages = numPages
+            } else {
+                this.numberOfPages = parseInt(numPages) + 1
+            }
+            if (this.currentPage > this.numberOfPages) {
+                this.currentPage = this.numberOfPages
+            }
+        },
+        previousPage(){
+            if (this.currentPage > 1){
+                this.currentPage -= 1
+            }
+        },
+        nextPage(){
+            if (this.currentPage < this.numberOfPages){
+                this.currentPage += 1
+            }
         },
         getFilteredSkills() {
             var finalSkillsList = this.skills;
@@ -131,6 +216,13 @@ export default {
             finalSkillsList = this.filterByType(finalSkillsList);
             finalSkillsList = this.filterByTier(finalSkillsList);
             return finalSkillsList
+        },
+        getFilteredSkillsByRow(row) {
+            var finalSkillsList = this.getFilteredSkills()
+            var firstSkillIdx = (this.currentPage - 1) * this.skillsPerPage + (this.skillsPerPage / 2) * row
+            var lastSkillIdx = firstSkillIdx + (this.skillsPerPage/2)
+            var finalSkillsListRange = finalSkillsList.slice(firstSkillIdx, lastSkillIdx)
+            return finalSkillsListRange
         },
         filterByAttribute(skills) {
             var filters = [];
@@ -220,6 +312,7 @@ export default {
                     this.filters[filterId].active = !this.filters[filterId].active
                 }
             }
+            this.updateNumberOfPages();
         },
         shouldBeDisabled(filterName) {
             for (let filterId in this.filters) {
@@ -291,6 +384,11 @@ export default {
     margin-right: 15px;
     margin-top: 100px;
 }
+#card-container-2 {
+    margin-left: 25px;
+    margin-right: 15px;
+    margin-top: 100px;
+}
 #filter-div{
     background-color: rgba(0, 0, 0, 0.7);
     left: 50%;
@@ -299,8 +397,27 @@ export default {
     padding: 0px;
     z-index: 1;
 }
+#pages-carousel button{
+    color: rgb(10, 10, 10);
+    background-image: linear-gradient(to right, rgb(121, 92, 0), rgb(196, 150, 0) 98%);
+    border: 1px solid black;
+    min-width: 30px;
+    max-width: 45px;
+    max-height: 45px;
+}
+#pages-carousel button:disabled{
+    background-image: linear-gradient(to right, rgba(87, 80, 58, 0.8), rgba(78, 70, 43, 0.8) 98%);
+}
+#pages-carousel img{
+    height: 100%;
+    width: auto;
+}
 @media screen and (max-width: 767px) {
     #card-container {
+        margin-left: 45px;
+        margin-right: 30px;
+    }
+    #card-container-2 {
         margin-left: 45px;
         margin-right: 30px;
     }
