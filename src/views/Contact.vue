@@ -6,11 +6,11 @@
                 <h4 class="d-none d-sm-block pb-2">We will be happy to recieve any suggestion, and solve any doubt!</h4>
                 <form class="container" @submit.prevent>
                     <div class="mb-3 row">
-                        <input type="email" ref="email" class="form-control" id="email-input" placeholder="your_email@example.com" name="email">
+                        <input type="email" ref="email" class="form-control" id="email-input" placeholder="your_email@example.com" name="email" required>
                     </div>
                     <div class="mb-3 row">
                         <textarea ref="message" class="col-12 form-control" id="email-content-input"
-                        rows=6 placeholder="Body of the message" name="message"/>
+                        rows=6 placeholder="Body of the message" name="message" required/>
                     </div>
                     <div class="mb-3">
                         <input type="checkbox" v-model='policiesCheck' ref='policiesCheck' class="form-check-input" id="policies-check" />
@@ -48,7 +48,9 @@ export default {
                 email: this.$refs.email.value,
                 message: this.$refs.message.value
             }
-            if (this.$refs.policiesCheck.checked) {
+            if (payload.email == "" || payload.message == "" || !payload.email.includes("@")){
+                console.log("some fields are empty or wrong");
+            }else if (this.$refs.policiesCheck.checked) {
                 axios.post(url, payload)
                     .then(res=>{
                         var message = "Thanks a lot for the help, we'll do our best!"

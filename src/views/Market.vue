@@ -198,6 +198,8 @@ export default {
             }
             if (this.currentPage > this.numberOfPages) {
                 this.currentPage = this.numberOfPages
+            } else if (this.currentPage == 0 && this.numberOfPages != 0) {
+                this.currentPage = 1
             }
         },
         previousPage(){
