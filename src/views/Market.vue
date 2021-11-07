@@ -2,9 +2,8 @@
     <!-- TODO: SEARCH ENGINE, TO LOOK FOR SKILLS BY ITS NAME-->
     <div class="m-0 min-vh-100 bg-dark pb-2">
         <div id="filter-div" class="position-fixed text-white text-center ps-3 pe-2 pe-md-3 rounded-bottom">
-            <div v-if="showFilter" class="d-flex pt-1 pt-md-3 ">
+            <div v-if="showFilter" class="d-flex py-2 pt-md-3 ">
                 <!-- TODO: RESET FILTER -->
-                <!-- TODO: ARROW OF SHOW/HIDE ON THE RIGHT OF THE FILTER DIV -->
                 <div class="border-end pe-1">
                     <button @click="revertFilter('blood')" class="filter-button">
                         <img :class="{disabled_filter: shouldBeDisabled('blood')}" class="filter-panel-icon" src="../assets/blood-icon.png" alt="">
@@ -30,7 +29,7 @@
                         <img :class="{disabled_filter: shouldBeDisabled('heal')}" class="filter-panel-icon" src="../assets/heal-icon.png" alt="">
                     </button>
                 </div>
-                <div class="border-start ps-1">
+                <div class="border-start border-end px-1">
                     <button @click="revertFilter('copper')" class="filter-button">
                         <img :class="{disabled_filter: shouldBeDisabled('copper')}" class="filter-panel-icon" src="../assets/copper-icon.png" alt="">
                     </button>
@@ -47,16 +46,19 @@
                         <img :class="{disabled_filter: shouldBeDisabled('obsidiana')}" class="filter-panel-icon" src="../assets/obsidiana-icon.png" alt="">
                     </button>
                 </div>
-            </div>
-            <div v-if="!showFilter" class="d-flex pb-1">
-                <p class="col my-auto">Filters</p>
-                <button @click="showFilter = true" id="hide-filter-button" class="p-0 m-0">
-                    <img id="hide-filter-img" src="../assets/arrow_down.png" alt="">
+                <button @click="resetFilters()" class="p-0 m-0 ms-1 filter-button">
+                    <img id="hide-filter-img" class="small-filter-icon" src="../assets/reset_icon.png" alt="">
+                </button>
+                <button @click="showFilter = false" class="p-0 m-0 filter-button">
+                    <img id="hide-filter-img" class="small-filter-icon" src="../assets/hide-up-arrow.png" alt="">
                 </button>
             </div>
-            <button v-if="showFilter" @click="showFilter = false" id="hide-filter-button" class="p-0 m-0">
-                <img id="hide-filter-img" src="../assets/arrow_up.png" alt="">
-            </button>
+            <div v-if="!showFilter" class="d-flex py-1">
+                <p class="col my-auto">Filters</p>
+                <button @click="showFilter = true" class="p-0 m-0 filter-button">
+                    <img id="hide-filter-img" class="small-filter-icon" src="../assets/show-down-arrow.png" alt="">
+                </button>
+            </div>
         </div>
         <div class="container pb-3">
             <div id="card-container" class="container">
@@ -333,6 +335,11 @@ export default {
                     return false
                 }
             }
+        },
+        resetFilters() {
+            for (let filterId in this.filters) {
+                this.filters[filterId].active = false
+            }
         }
     }
 }
@@ -374,7 +381,16 @@ export default {
     margin: 2px;
     width: 40px;
 }
-#hide-filter-button {
+.white-border-button{
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid white;
+    border-radius: 5px;
+}
+.small-filter-icon {
+    width: 40px;
+    padding: 10px;
+}
+.filter-button {
     background-color: rgba(255, 255, 255, 0);
     border: 0px;
 }
