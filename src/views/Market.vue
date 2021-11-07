@@ -3,7 +3,6 @@
     <div class="m-0 min-vh-100 bg-dark pb-2">
         <div id="filter-div" class="position-fixed text-white text-center ps-3 pe-2 pe-md-3 rounded-bottom">
             <div v-if="showFilter" class="d-flex py-2 pt-md-3 ">
-                <!-- TODO: RESET FILTER -->
                 <div class="border-end pe-1">
                     <button @click="revertFilter('blood')" class="filter-button">
                         <img :class="{disabled_filter: shouldBeDisabled('blood')}" class="filter-panel-icon" src="../assets/blood-icon.png" alt="">
@@ -73,14 +72,14 @@
         </div>
         <div id="pages-carousel" class="w-100">
             <div class="justify-content-center d-flex">
-                <button @click="previousPage">
-                    <img src="../assets/arrow-left.png"/>
+                <button @click="previousPage" class="p-0">
+                    <img class="p-2" src="../assets/sharp-arrow-left.png"/>
                 </button>
                 <button v-for="number in numberOfPages" @click="currentPage=number" :key="number" :disabled="currentPage == number">
                     {{number}}
                 </button>
-                <button @click="nextPage">
-                    <img src="../assets/arrow-right.png"/>
+                <button @click="nextPage" class="p-0">
+                    <img class="p-2" src="../assets/sharp-arrow-right.png"/>
                 </button>
             </div>
         </div>

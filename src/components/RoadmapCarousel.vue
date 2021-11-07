@@ -11,7 +11,7 @@
                 <div class="col-12 col-sm-6 col-md-4 col-xl-3" v-for="stage in stages" :key="stage.id" :ref="'ref_node_'+stage.id">
                     <div class="row">
                         <roadmap-node class="col-12 col-sm-10 p-0" :title="stage.title" :date_title="stage.date" :content="stage.sumary" />
-                        <img v-if="stage.id != stages.length" class="d-none d-sm-block col-2 arrow-img-carousel" src="../assets/arrow-right.png"/>
+                        <img v-if="stage.id != stages.length" class="d-none d-sm-block col-2 arrow-img-carousel" src="../assets/sharp-arrow-right.png"/>
                     </div>
                 </div>
             </div>
