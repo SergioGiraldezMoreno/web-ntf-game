@@ -31,8 +31,7 @@ export default {
     border-radius: 5px;
     width: 100%;
     height: auto;
-    background-color: rgba(46, 46, 46, 0); /* TODO: change to this when real img are loaded! */
-    /* background-image: linear-gradient(to right, rgb(46, 46, 46), rgb(70, 65, 51) 95%); */
+    background-color: rgba(46, 46, 46, 0);
 }
 .market-card-title {
     color: rgb(223, 182, 0);

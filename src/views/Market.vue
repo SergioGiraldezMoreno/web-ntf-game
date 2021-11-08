@@ -62,10 +62,10 @@
         <div class="container pb-3">
             <div id="card-container" class="container">
                 <!-- TODO: MAYBE FOR THE MOBILE VERSION DO A INFINITE SCROLL OR A "CAROUSEL?" -->
-                <div class="row">
+                <div class="row justify-content-center">
                     <MarketPlaceCard class="col" v-for="skill in getFilteredSkillsByRow(0)" :key="skill.id" :skill="skill" />
                 </div>
-                <div class="row">
+                <div class="row justify-content-center">
                     <MarketPlaceCard class="col" v-for="skill in getFilteredSkillsByRow(1)" :key="skill.id" :skill="skill" />
                 </div>
             </div>
@@ -75,13 +75,14 @@
                 <button @click="previousPage" class="p-0">
                     <img class="p-2" src="../assets/sharp-arrow-left.png"/>
                 </button>
-                <button v-for="number in numberOfPages" @click="currentPage=number" :key="number" :disabled="currentPage == number">
+                <button v-for="number in numberOfVisiblePages" @click="currentPage=number" :key="number" :disabled="currentPage == number">
                     {{number}}
                 </button>
                 <button @click="nextPage" class="p-0">
                     <img class="p-2" src="../assets/sharp-arrow-right.png"/>
                 </button>
             </div>
+            <p class="text-center text-white">Total pages: {{numberOfPages}}</p>
         </div>
     </div>
 </template>
@@ -122,6 +123,20 @@ export default {
     unmounted() {
         window.removeEventListener('resize', this.updatePagesData);
     },
+    computed :{
+        numberOfVisiblePages() {
+            if (this.numberOfPages <= 3) {
+                return this.numberOfPages
+            }
+            if (this.currentPage == 1) {
+                return [1,2,3]
+            } else if (this.currentPage == this.numberOfPages){
+                return [this.currentPage-2, this.currentPage-1,this.currentPage]
+            } else {
+                return [this.currentPage-1, this.currentPage, this.currentPage+1]
+            }
+        }
+    },
     methods: {
         loadSkillsData() {
             // this will be a call to an API or a DB the skills may have more info
@@ -160,6 +175,7 @@ export default {
                 {id: 34, name: "Lethal poison", attribute: "venom", type: "attack", tier: "silver", img: "assets/SKILLS/pocionmortal_silver.png", description: "Detail one of the Skill Detail two of the Skill"},
                 {id: 33, name: "Lethal poison", attribute: "venom", type: "attack", tier: "copper", img: "assets/SKILLS/pocionmortal_copper.png", description: "Detail one of the Skill Detail two of the Skill"},
                 {id: 37, name: "Lethal poison", attribute: "venom", type: "attack", tier: "obsidiana", img: "assets/SKILLS/pocionmortal_obsidiana.png", description: "Detail one of the Skill Detail two of the Skill"},
+                {id: 43, name: "Lethal poison", attribute: "venom", type: "attack", tier: "obsidiana", img: "assets/SKILLS/pocionmortal_obsidiana_2.png", description: "Detail one of the Skill Detail two of the Skill"},
                 {id: 36, name: "Lethal poison", attribute: "venom", type: "attack", tier: "ruby", img: "assets/SKILLS/pocionmortal_rubi.png", description: "Detail one of the Skill Detail two of the Skill"},
                 {id: 41, name: "Vigorous venom", attribute: "venom", type: "defense", tier: "ruby", img: "assets/SKILLS/frascodeveneno_rubi.png", description: "Detail one of the Skill Detail two of the Skill"},
                 {id: 40, name: "Vigorous venom", attribute: "venom", type: "defense", tier: "gold", img: "assets/SKILLS/frascodeveneno_gold.png", description: "Detail one of the Skill Detail two of the Skill"},
@@ -339,6 +355,7 @@ export default {
             for (let filterId in this.filters) {
                 this.filters[filterId].active = false
             }
+            this.updateNumberOfPages();
         }
     }
 }
@@ -397,13 +414,6 @@ export default {
     width: 40px;
 }
 #card-container {
-    margin-left: 25px;
-    margin-right: 15px;
-    margin-top: 100px;
-}
-#card-container-2 {
-    margin-left: 25px;
-    margin-right: 15px;
     margin-top: 100px;
 }
 #filter-div{
@@ -430,18 +440,8 @@ export default {
     width: auto;
 }
 @media screen and (max-width: 767px) {
-    #card-container {
-        margin-left: 45px;
-        margin-right: 30px;
-    }
-    #card-container-2 {
-        margin-left: 45px;
-        margin-right: 30px;
-    }
     #filter-div{
         background-color: rgba(0, 0, 0, 0.7);
-        left: 50%;
-        transform: translateX(-50%);
         border-radius: 0px;
         padding: 0px;
     } 

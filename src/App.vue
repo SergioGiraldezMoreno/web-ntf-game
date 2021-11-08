@@ -23,7 +23,6 @@ export default {
 
 <style scoped>
 div {
-  /* font-family: 'Cinzel', serif; */
-  font-family: 'MedievalSharp', cursive; /* TODO: REMOVE THE FONT NOT USED */
+  font-family: 'MedievalSharp', cursive;
 }
 </style>

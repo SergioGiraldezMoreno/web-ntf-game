@@ -5,7 +5,7 @@
             @mouseleave="hover = false">
             <h2 class="display-6 fw-bold yellow-text">{{ title }}</h2>
             <h5 class="yellow-text fw-bold">{{ date_title }}</h5>
-            <p v-if="hover || show" class="mb-auto">
+            <p v-if="hover" class="mb-auto">
                 {{ content }}
             </p>
         </div>
