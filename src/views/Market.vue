@@ -4,45 +4,18 @@
         <div id="filter-div" class="position-fixed text-white text-center ps-3 pe-2 pe-md-3 rounded-bottom">
             <div v-if="showFilter" class="d-flex py-2 pt-md-3 ">
                 <div class="border-end pe-1">
-                    <button @click="revertFilter('blood')" class="filter-button">
-                        <img :class="{disabled_filter: shouldBeDisabled('blood')}" class="filter-panel-icon" src="../assets/blood-icon.png" alt="">
-                    </button>
-                    <button @click="revertFilter('holy')" class="filter-button">
-                        <img :class="{disabled_filter: shouldBeDisabled('holy')}" class="filter-panel-icon" src="../assets/holy-icon.png" alt="">
-                    </button>
-                    <button @click="revertFilter('venom')" class="filter-button">
-                        <img :class="{disabled_filter: shouldBeDisabled('venom')}" class="filter-panel-icon" src="../assets/venom-icon.png" alt="">
-                    </button>
-                    <button @click="revertFilter('shadow')" class="filter-button">
-                        <img :class="{disabled_filter: shouldBeDisabled('shadow')}" class="filter-panel-icon" src="../assets/shadow-icon.png" alt="">
+                    <button v-for="filter in getFilterGroup('attribute')" :key="filter" @click="revertFilter(filter)" class="filter-button">
+                        <img :class="{disabled_filter: filters[filter].disabled}" class="filter-panel-icon" :src="require('@/'+filters[filter].img)" alt="">
                     </button>
                 </div>
                 <div class="px-1">
-                    <button @click="revertFilter('attack')" class="filter-button">
-                        <img :class="{disabled_filter: shouldBeDisabled('attack')}" class="filter-panel-icon" src="../assets/attack-icon.png" alt="">
-                    </button>
-                    <button @click="revertFilter('defense')" class="filter-button">
-                        <img :class="{disabled_filter: shouldBeDisabled('defense')}" class="filter-panel-icon" src="../assets/defense-icon.png" alt="">
-                    </button>
-                    <button @click="revertFilter('heal')" class="filter-button">
-                        <img :class="{disabled_filter: shouldBeDisabled('heal')}" class="filter-panel-icon" src="../assets/heal-icon.png" alt="">
+                    <button v-for="filter in getFilterGroup('type')" :key="filter" @click="revertFilter(filter)" class="filter-button">
+                        <img :class="{disabled_filter: filters[filter].disabled}" class="filter-panel-icon" :src="require('@/'+filters[filter].img)" alt="">
                     </button>
                 </div>
                 <div class="border-start border-end px-1">
-                    <button @click="revertFilter('copper')" class="filter-button">
-                        <img :class="{disabled_filter: shouldBeDisabled('copper')}" class="filter-panel-icon" src="../assets/copper-icon.png" alt="">
-                    </button>
-                    <button @click="revertFilter('silver')" class="filter-button">
-                        <img :class="{disabled_filter: shouldBeDisabled('silver')}" class="filter-panel-icon" src="../assets/silver-icon.png" alt="">
-                    </button>
-                    <button @click="revertFilter('gold')" class="filter-button">
-                        <img :class="{disabled_filter: shouldBeDisabled('gold')}" class="filter-panel-icon" src="../assets/gold-icon.png" alt="">
-                    </button>
-                    <button @click="revertFilter('ruby')" class="filter-button">
-                        <img :class="{disabled_filter: shouldBeDisabled('ruby')}" class="filter-panel-icon" src="../assets/ruby-icon.png" alt="">
-                    </button>
-                    <button @click="revertFilter('obsidiana')" class="filter-button">
-                        <img :class="{disabled_filter: shouldBeDisabled('obsidiana')}" class="filter-panel-icon" src="../assets/obsidiana-icon.png" alt="">
+                    <button v-for="filter in getFilterGroup('tier')" :key="filter" @click="revertFilter(filter)" class="filter-button">
+                        <img :class="{disabled_filter: filters[filter].disabled}" class="filter-panel-icon" :src="require('@/'+filters[filter].img)" alt="">
                     </button>
                 </div>
                 <button @click="resetFilters()" class="p-0 m-0 ms-1 filter-button">
@@ -101,18 +74,20 @@ export default {
             currentPage: 1,
             skillsPerPage: 10,
             numberOfPages: 1,
-            filters: [{id: 1, name: "venom", group: "attribute", img: "../assets/venom-icon.png", active: false},
-                {id: 2, name: "holy", group: "attribute", img: "../assets/holy-icon.png", active: false},
-                {id: 3, name: "shadow", group: "attribute", img: "../assets/shadow-icon.png", active: false},
-                {id: 4, name: "blood", group: "attribute", img: "../assets/blood-icon.png", active: false},
-                {id: 5, name: "attack", group: "type", img: "../assets/attack-icon.png", active: false},
-                {id: 6, name: "defense", group: "type", img: "../assets/defense-icon.png", active: false},
-                {id: 7, name: "heal", group: "type", img: "../assets/heal-icon.png", active: false},
-                {id: 8, name: "copper", group: "tier", img: "../assets/copper-icon.png", active: false},
-                {id: 9, name: "silver", group: "tier", img: "../assets/silver-icon.png", active: false},
-                {id: 10, name: "gold", group: "tier", img: "../assets/gold-icon.png", active: false},
-                {id: 11, name: "ruby", group: "tier", img: "../assets/ruby-icon.png", active: false},
-                {id: 12, name: "obsidiana", group: "tier", img: "../assets/obsidiana-icon.png", active: false}],
+            filters: {
+                "venom": {group: "attribute", active: false, disabled: false, img: "assets/venom-icon.png"},
+                "holy": {group: "attribute", active: false, disabled: false, img: "assets/holy-icon.png"},
+                "shadow": {group: "attribute", active: false, disabled: false, img: "assets/shadow-icon.png"},
+                "blood": {group: "attribute", active: false, disabled: false, img: "assets/blood-icon.png"},
+                "attack": {group: "type", active: false, disabled: false, img: "assets/attack-icon.png"},
+                "defense": {group: "type", active: false, disabled: false, img: "assets/defense-icon.png"},
+                "heal": {group: "type", active: false, disabled: false, img: "assets/heal-icon.png"},
+                "copper": {group: "tier", active: false, disabled: false, img: "assets/copper-icon.png"},
+                "silver": {group: "tier", active: false, disabled: false, img: "assets/silver-icon.png"},
+                "gold": {group: "tier", active: false, disabled: false, img: "assets/gold-icon.png"},
+                "ruby": {group: "tier", active: false, disabled: false, img: "assets/ruby-icon.png"},
+                "obsidiana": {group: "tier", active: false, disabled: false, img: "assets/obsidiana-icon.png"}            
+            },
             skills: []
         }
     },
@@ -219,6 +194,15 @@ export default {
                 this.currentPage = 1
             }
         },
+        getFilterGroup(group){
+            var filterNames = []
+            for (let filterName in this.filters){
+                if (this.filters[filterName].group == group) {
+                    filterNames.push(filterName)
+                }
+            }
+            return filterNames
+        },
         previousPage(){
             if (this.currentPage > 1){
                 this.currentPage -= 1
@@ -231,9 +215,9 @@ export default {
         },
         getFilteredSkills() {
             var finalSkillsList = this.skills;
-            finalSkillsList = this.filterByAttribute(finalSkillsList);
-            finalSkillsList = this.filterByType(finalSkillsList);
-            finalSkillsList = this.filterByTier(finalSkillsList);
+            finalSkillsList = this.filterBy(finalSkillsList, "attribute");
+            finalSkillsList = this.filterBy(finalSkillsList, "type");
+            finalSkillsList = this.filterBy(finalSkillsList, "tier");
             return finalSkillsList
         },
         getFilteredSkillsByRow(row) {
@@ -243,68 +227,22 @@ export default {
             var finalSkillsListRange = finalSkillsList.slice(firstSkillIdx, lastSkillIdx)
             return finalSkillsListRange
         },
-        filterByAttribute(skills) {
+        filterBy(skills, group) {
             var filters = [];
-            for (let filter in this.filters){
-                if (this.filters[filter].group == "attribute") {
-                    filters.push(this.filters[filter])
+            for (let filterName in this.filters){
+                if (this.filters[filterName].group == group) {
+                    filters.push(filterName)
                 }
             }
             if (this.isAnyFilterActive(filters)) {
                 var validSkills = [];
-                var validAttributes = [];
-                var activeFilters = this.getActiveFilters(filters)
-                for (let filterId in activeFilters) {
-                    validAttributes.push(activeFilters[filterId].name);
+                var validGroup = [];
+                var activeFilterNames = this.getActiveFilters(filters)
+                for (let idx in activeFilterNames) {
+                    validGroup.push(activeFilterNames[idx]);
                 }
                 for (let skillId in skills) {
-                    if (validAttributes.includes(skills[skillId].attribute)) {
-                        validSkills.push(skills[skillId]);
-                    }
-                }
-                return validSkills
-            }
-            return skills
-        },
-        filterByType(skills) {
-            var filters = [];
-            for (let filter in this.filters){
-                if (this.filters[filter].group == "type") {
-                    filters.push(this.filters[filter])
-                }
-            }
-            if (this.isAnyFilterActive(filters)) {
-                var validSkills = [];
-                var validTypes = [];
-                var activeFilters = this.getActiveFilters(filters)
-                for (let filterId in activeFilters) {
-                    validTypes.push(activeFilters[filterId].name);
-                }
-                for (let skillId in skills) {
-                    if (validTypes.includes(skills[skillId].type)) {
-                        validSkills.push(skills[skillId]);
-                    }
-                }
-                return validSkills
-            }
-            return skills
-        },
-        filterByTier(skills) {
-            var filters = [];
-            for (let filter in this.filters){
-                if (this.filters[filter].group == "tier") {
-                    filters.push(this.filters[filter])
-                }
-            }
-            if (this.isAnyFilterActive(filters)) {
-                var validSkills = [];
-                var validTiers = [];
-                var activeFilters = this.getActiveFilters(filters)
-                for (let filterId in activeFilters) {
-                    validTiers.push(activeFilters[filterId].name);
-                }
-                for (let skillId in skills) {
-                    if (validTiers.includes(skills[skillId].tier)) {
+                    if (validGroup.includes(skills[skillId][group])) {
                         validSkills.push(skills[skillId]);
                     }
                 }
@@ -316,46 +254,45 @@ export default {
             var filtered = this.getActiveFilters(filters);
             return filtered.length > 0
         },
-        getActiveFilters(filters) {
-            var activeFilters = [];
-            for (var i = 0; i < filters.length; i++) {
-                if (filters[i].active){
-                    activeFilters.push(filters[i])
+        getActiveFilters(filterNames) {
+            var activeFilterNames = [];
+            for (let idx in filterNames){
+                if (this.filters[filterNames[idx]].active) {
+                    activeFilterNames.push(filterNames[idx])
                 }
             }
-            return activeFilters
+            return activeFilterNames
         },
         revertFilter(filterName) {
-            for (let filterId in this.filters) {
-                if (this.filters[filterId].name == filterName) {
-                    this.filters[filterId].active = !this.filters[filterId].active
-                }
-            }
+            this.filters[filterName].active = !this.filters[filterName].active
             this.updateNumberOfPages();
+            this.updateDisabledFilters();
         },
-        shouldBeDisabled(filterName) {
-            for (let filterId in this.filters) {
-                var filter = this.filters[filterId]
-                if (filter.name == filterName) {
-                    var activeRelatedFilters = [];
-                    for (let filterRelatedId in this.filters){
-                        var relatedFilter = this.filters[filterRelatedId]
-                        if ((relatedFilter.name != filter.name) & (relatedFilter.group == filter.group) & relatedFilter.active) {
-                            activeRelatedFilters.push(relatedFilter)
-                        }
+        updateDisabledFilters() {
+            for (let filterName in this.filters) {
+                var filter = this.filters[filterName]
+                var activeRelatedFilters = [];
+                for (let filterRelatedName in this.filters){
+                    var relatedFilter = this.filters[filterRelatedName]
+                    if ((filterRelatedName != filterName) & (relatedFilter.group == filter.group) & relatedFilter.active) {
+                        activeRelatedFilters.push(relatedFilter)
                     }
-                    if (activeRelatedFilters.length > 0){ 
-                        return !this.filters[filterId].active
-                    }
-                    return false
                 }
+                if (activeRelatedFilters.length > 0){
+                    this.filters[filterName].disabled = !this.filters[filterName].active
+                } else {
+                    this.filters[filterName].disabled = false
+                    this.$forceUpdate();
+                }
+                
             }
         },
         resetFilters() {
-            for (let filterId in this.filters) {
-                this.filters[filterId].active = false
+            for (let filterName in this.filters) {
+                this.filters[filterName].active = false
             }
             this.updateNumberOfPages();
+            this.updateDisabledFilters();
         }
     }
 }
@@ -371,17 +308,6 @@ export default {
     filter: grayscale(100%);
     filter: gray;
 }
-
-.disabled_filter:hover {
-    -webkit-filter: none;
-    -moz-filter: none;
-    -ms-filter: none;
-    -o-filter: none;
-    filter: none;
-    filter: none;
-    filter: none;
-}
-
 
 .filter-button {
     width: auto;
@@ -438,6 +364,17 @@ export default {
 #pages-carousel img{
     height: 100%;
     width: auto;
+}
+@media (hover: hover) and (pointer: fine) {
+    .disabled_filter:hover {
+        -webkit-filter: none;
+        -moz-filter: none;
+        -ms-filter: none;
+        -o-filter: none;
+        filter: none;
+        filter: none;
+        filter: none;
+    }
 }
 @media screen and (max-width: 767px) {
     #filter-div{
