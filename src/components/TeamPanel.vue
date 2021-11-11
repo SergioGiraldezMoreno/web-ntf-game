@@ -30,6 +30,7 @@
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="joan-info" role="tabpanel" aria-labelledby="joan-tab">
+                    <!-- TODO: CONTENT -->
                     Here will be a brief description of JOAN and his position in the company. Also a bit of his 
                     professional career and studies!
                     <br>
@@ -38,6 +39,7 @@
                     </a>
                 </div>
                 <div class="tab-pane fade" id="victor-info" role="tabpanel" aria-labelledby="victor-tab">
+                    <!-- TODO: CONTENT -->
                     Here will be a brief description of VICTOR and his position in the company. Also a bit of his 
                     professional career and studies!
                     <br>
@@ -46,6 +48,7 @@
                     </a>
                 </div>
                 <div class="tab-pane fade" id="sergi-info" role="tabpanel" aria-labelledby="sergi-tab">
+                    <!-- TODO: CONTENT -->
                     Here will be a brief description of SERGI and his position in the company. Also a bit of his 
                     professional career and studies!
                     <br>
@@ -106,45 +109,20 @@
                 <span class="carousel-control-next-icon"></span>
             </button>
         </div>
-
-
-
-        <!-- <div class="d-sm-none w-100">
-            <div class="info-box p-1 my-2 mx-auto mobile-team-card">
-                <h2>Joan</h2>
-                <img class="w-100 rounded" src="../assets/joan-portrait-squared.png" alt="" />
-                <div class="py-3 px-2">
-                    <h3>Blockchain Dev</h3>
-                    <a href="">
-                        <img class="media-icon-sized" src="../assets/linkedin.png"/>
-                    </a>
-                </div>
-            </div>
-            <div class="info-box p-1 my-2 mx-auto mobile-team-card">
-                <h2>Victor</h2>
-                <img class="w-100 rounded" src="../assets/victor-portrait-squared.png" alt="" />
-                <div class="py-3 px-2">
-                    <h3>Artist & Designer</h3>
-                    <a href="">
-                        <img class="media-icon-sized" src="../assets/linkedin.png"/>
-                    </a>
-                </div>
-            </div>
-            <div class="info-box p-1 my-2 mx-auto w-auto mobile-team-card">
-                <h2>Sergio</h2>
-                <img class="w-100 rounded" src="../assets/sergi-portrait-squared.png" alt="" />
-                <div class="py-3 px-2">
-                    <h3>FullStack Dev</h3>
-                    <a href="">
-                        <img class="media-icon-sized" src="../assets/linkedin.png"/>
-                    </a>
-                </div>
-            </div>
-        </div> -->
     </div>
 </template>
 
+<script>
+export default {
+   name: "TeamPanel",
+}
+</script>
+
+
 <style scoped>
+#team-carousel {
+    z-index: 0;
+}
 .mobile-team-card {
     max-width: 300px;
 }
@@ -204,9 +182,3 @@
 }
 
 </style>
-
-<script>
-export default {
-   name: "TeamPanel",
-}
-</script>

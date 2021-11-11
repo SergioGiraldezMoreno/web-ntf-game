@@ -1,6 +1,6 @@
 <template>
     <div class="w-auto position-fixed d-flex flex-column align-items-sm-end vh-100 p-0" id="nav">
-         <ul class="pb-0 px-0 my-auto" style="padding-top: 90px;">
+         <ul class="pb-0 px-0 my-auto">
             <li class='m-0 top-left-border-radius'>
                 <a id='twitter-link' class="d-inline-block h-100 p-2">
                     <img class="media-icon-sized" src="../assets/twitter.png"/>
@@ -31,6 +31,7 @@ export default {
     right: 0;
 }
 #nav ul{
+    padding-top: 90px;
     list-style: none;
 }
 .media-icon-sized {
@@ -56,5 +57,9 @@ export default {
 #linkedin-link {
     background-color: rgb(14, 118, 168);
 }
-
+@media screen and (max-width: 767px){
+    #nav ul{
+        padding-top: 50px;
+    }
+}
 </style>
