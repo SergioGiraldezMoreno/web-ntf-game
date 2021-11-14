@@ -1,6 +1,7 @@
 <template>
-    <div id="whitepaper-info-container" class="container p-5">
-        <div id="whitepaper-info-subcontainer" class="d-none d-md-block mx-auto w-75 overflow-auto">
+    <!-- TODO: REPLACE THE SCROLL IMAGE WITH 3 IMGS OF EACH PART SO THE HEAD AND FOOT ARE THE ROLLS AND THE BODY IS THE PAPER -->
+    <div class="whitepaper-info-container container p-5 vh-100 d-none d-md-block ">
+        <div class="whitepaper-info-subcontainer mx-auto w-75 overflow-auto">
             <h1>WHITEPAPER</h1>
             <!-- TODO: CONTENT -->
             <p class="fs-4 fw-bold">Here will go all the whitepaper info, maybe with some info in sliders, 
@@ -12,19 +13,33 @@
                 y un boton (link) al whitepaper completo o para descargarlo
             </p>
             <p class="fs-4 fw-bold">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
             </p>
             <p class="fs-4 fw-bold">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
             </p>
             <p class="fs-4 fw-bold">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <p class="fs-4 fw-bold">
+                4 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <p class="fs-4 fw-bold">
+                5 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <p class="fs-4 fw-bold">
+                6 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
             </p>
         </div>
-        <div class="d-md-none d-flex flex-column py-4">
+    </div>
+    <div class="d-md-none whitepaper-info-container p-4">
+        <div class="whitepaper-info-subcontainer d-flex flex-column">
             <h1>WHITEPAPER</h1>
             <!-- TODO: CONTENT -->
             <p>Here should be just a short message telling the user to read or download the content.</p>
@@ -42,13 +57,13 @@ export default {
 </script>
 
 <style scoped>
-#whitepaper-info-container {
+.whitepaper-info-container {
     color: rgb(61, 32, 12);
-    background-image: url("../assets/papiro.png");
+    background-image: url("../assets/papiro_light.png");
     background-size: 100% 100%;
-    height: 100vh;
+    max-width: 110vh;
 }
-#whitepaper-info-container button {
+.whitepaper-info-container button {
     background-color: rgb(61, 32, 12);
     background-image: linear-gradient(to right, rgb(61, 32, 12), rgb(88, 54, 31) 90%);
     border-radius: 10px;
@@ -58,41 +73,41 @@ export default {
     width: 100%;
     max-width: 45vw;
 }
-#whitepaper-info-container ::-webkit-scrollbar-track {
+.whitepaper-info-container ::-webkit-scrollbar-track {
     display: none;
 }
-#whitepaper-info-container ::-webkit-scrollbar-button:single-button {
+.whitepaper-info-container ::-webkit-scrollbar-button:single-button {
     height: 20px;
     width: 20px;
 }
-#whitepaper-info-container ::-webkit-scrollbar-button:single-button:vertical:decrement {
+.whitepaper-info-container ::-webkit-scrollbar-button:single-button:vertical:decrement {
     background-image: url("../assets/arrow-up.png");
     background-size: 100% 100%;
 }
-#whitepaper-info-container ::-webkit-scrollbar-button:single-button:vertical:increment {
+.whitepaper-info-container ::-webkit-scrollbar-button:single-button:vertical:increment {
     background-image: url("../assets/arrow-down.png");
     background-size: 100% 100%;
 }
-#whitepaper-info-container ::-webkit-scrollbar {
+.whitepaper-info-container ::-webkit-scrollbar {
 	width: 20px;
 	background-color: #ffffff00;
 }
-#whitepaper-info-container ::-webkit-scrollbar-thumb {
+.whitepaper-info-container ::-webkit-scrollbar-thumb {
     display: none;
 }
-#whitepaper-info-subcontainer{
-    margin-top: 9vh;
-    margin-bottom: 7vh;
+.whitepaper-info-subcontainer{
+    margin-top: 10vh;
     height: 80%;
+    margin-bottom: 10vh;
 }
-@media screen and (max-height: 767px) {
-    #whitepaper-info-container {
+@media screen and (max-width: 767px) {
+    .whitepaper-info-container {
         height: auto;
     }
-    #whitepaper-info-subcontainer{
-        margin-top: 3vh;
-        margin-bottom: 3vh;
-        height: 85%;
+    .whitepaper-info-subcontainer{
+        margin-top: 7vh;
+        margin-bottom: 6vh;
+        height: auto;
     }
 }
 </style>

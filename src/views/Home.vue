@@ -1,11 +1,19 @@
 <template>
     <div id="parent-div" class="main-background m-0 p-3 min-vh-100">
+        <!-- TODO: hacer que parpadee (cambios entre transparete y blanco) -->
+        <div v-if="isWindowTop" id="scroll-down-div" class="text-center">
+            <div class="d-flex justify-content-center">
+                <p class="mx-2 my-auto fs-4 fw-bold text-white">SCROLL</p>
+                <img id="scroll-down-img" src="../assets/scroll_arrows.png" alt="">
+                <p class="mx-2 my-auto fs-4 fw-bold text-white">DOWN</p>
+            </div>
+        </div>
         <!-- REMEMBER! WALLPAPER LINK! -->
         <!-- https://www.wallpaperflare.com/grim-reaper-standing-on-cliff-digital-wallpaper-landscape-digital-art-wallpaper-uyw/download/1920x1080 -->
         <div class="main-div row text-white h-100 d-flex align-items-start text-center">
             <div>
                 <!-- MOBILE -->
-                <div class="d-lg-none px-1 pt-4 d-flex flex-column min-vh-100">
+                <div class="d-lg-none px-1 d-flex flex-column min-vh-100">
                     <img  class="m-auto magus-img-title" src="../assets/magus-light.png" alt="">
                     <router-link to="/game" class="w-75 mx-auto ">
                         <button class="custom-button mb-1 w-100 rounded-3 py-1 fs-3 fw-bold">PLAY NOW</button>
@@ -83,17 +91,44 @@ import RoadmapCarousel from "../components/RoadmapCarousel.vue";
 import TeamPanel from '../components/TeamPanel.vue';
 
 export default {
-  name: 'Home',
-  components: {
-    WhitePaperPanel,
-    RoadmapCarousel,
-    TeamPanel,
-  },
+    name: 'Home',
+    components: {
+        WhitePaperPanel,
+        RoadmapCarousel,
+        TeamPanel,
+    },
+    data() {
+        return {
+            isWindowTop: true,
+        }
+    },
+    mounted() {
+        window.addEventListener("scroll", this.onScroll)
+    },
+    unmounted() {
+        window.removeEventListener("scroll", this.onScroll)
+    },
+    methods: {
+        onScroll(event) {
+            this.isWindowTop = window.top.scrollY < 100;
+        }
+    }
 }
 </script>
 
 <style scoped>
-
+#scroll-down-div{
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    padding: 0px;
+    padding-bottom: 5px;
+}
+#scroll-down-img{
+    height: 10vh;
+}
 .magus-img-title {
     width: 50%;
     max-width: 750px;
@@ -109,7 +144,6 @@ export default {
         width: 100%;
         height: auto;
         max-width: 60vw;
-        /* max-height: 50vh; */
     }
 }
 </style>
