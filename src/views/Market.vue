@@ -284,7 +284,6 @@ export default {
                     this.filters[filterName].disabled = false
                     this.$forceUpdate();
                 }
-                
             }
         },
         resetFilters() {
@@ -381,6 +380,6 @@ export default {
         background-color: rgba(0, 0, 0, 0.7);
         border-radius: 0px;
         padding: 0px;
-    } 
+    }
 }
 </style>

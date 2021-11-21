@@ -71,8 +71,8 @@
                 </div>
 
                 <div id="roadmap-info" class="row mt-5">
-                    <h1 class="yellow-text shadowed-text">ROADMAP</h1>
-                    <roadmap-carousel class="mt-3"/>
+                    <h1 class="yellow-text shadowed-text my-auto">ROADMAP</h1>
+                    <roadmap-carousel />
                 </div>
 
                 <div id="team-info" class="h-100">

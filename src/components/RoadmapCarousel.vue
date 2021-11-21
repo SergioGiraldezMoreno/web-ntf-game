@@ -1,21 +1,36 @@
 <template>
-    <div class="carousel">
-        <div id="carousel-inner" class="overflow-hidden">
-            <!-- TODO: ADD ANIMATION WHEN MOVING!! (fade the leaving node and move the currently visible then unfade de new node)-->
+    <div class="carousel row p-0 mx-auto">
+        <div class="d-md-none col-12 my-auto">
             <button @click="previousStage" :disabled="currentFirstStageShowingId == 1" class="arrow-icon custom-button">
                 <img class="pe-1" src="../assets/sharp-arrow-left.png"/>
             </button>
-            <button @click="nextStage" :disabled="currentFirstStageShowingId == stages.length" class="arrow-icon custom-button">
+            <button @click="nextStage" :disabled="currentFirstStageShowingId == stages.length" class="arrow-icon custom-button mx-auto">
                 <img class="ps-1" src="../assets/sharp-arrow-right.png"/>
             </button>
-            <div class="w-100 py-3 ps-0 m-0 row flex-nowrap" :style="{ left: '-' + currentNodePosition + 'px' }">
-                <div class="col-12 col-md-6 col-lg-4 col-xxl-3" v-for="stage in stages" :key="stage.id" :ref="'ref_node_'+stage.id">
-                    <div class="row" style="left: 10px">
-                        <roadmap-node class="col-12 col-md-10 p-0" :title="stage.title" :date_title="stage.date" :content="stage.sumary" />
-                        <img v-if="stage.id != stages.length" class="d-none pe-0 d-md-block col-2 arrow-img-carousel" src="../assets/sharp-arrow-right.png"/>
+        </div>
+        <div class="d-none d-md-block col-2 col-md-1 my-auto p-0">
+            <button @click="previousStage" :disabled="currentFirstStageShowingId == 1" class="arrow-icon custom-button">
+                <img class="pe-1" src="../assets/sharp-arrow-left.png"/>
+            </button>
+        </div>
+        <div id="carousel-inner" class="overflow-hidden col-12 col-md-10 my-auto p-0">
+            <!-- TODO: ADD ANIMATION WHEN MOVING!! (fade the leaving node and move the currently visible then unfade de new node)-->
+            <div class="w-100 p-0 m-0 row flex-nowrap" :style="{ left: '-' + currentNodePosition + 'px' }">
+                <div class="col-12 col-md-6 col-lg-4 col-xxl-3 my-auto"
+                     v-for="stage in stages"
+                     :key="stage.id"
+                     :ref="'ref_node_'+stage.id">
+                    <div id="node-container" class="row">
+                        <roadmap-node class="col-12 col-md-10 p-0 my-auto" :title="stage.title" :date_title="stage.date" :content="stage.sumary" />
+                        <img v-if="stage.id != stages.length" class="d-none p-0 d-md-block col-2 arrow-img-carousel my-auto" src="../assets/sharp-arrow-right.png"/>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="d-none d-md-block col-2 col-md-1 my-auto p-0">
+            <button @click="nextStage" :disabled="currentFirstStageShowingId == stages.length" class="arrow-icon custom-button mx-auto">
+                <img class="ps-1" src="../assets/sharp-arrow-right.png"/>
+            </button>
         </div>
     </div>
 </template>
@@ -70,7 +85,6 @@ export default {
                 return 0
             }
             let carouselNodeWidth = this.$refs.ref_node_1.clientWidth;
-            console.log(carouselNodeWidth)
             var currentPosition = (this.currentFirstStageShowingId - 1) * carouselNodeWidth;
             this.currentNodePosition = currentPosition
         }
@@ -79,10 +93,6 @@ export default {
 </script>
 
 <style scoped>
-
-.carousel {
-    height: 50vh;
-}
 #carousel-inner div{
     position: relative;
     z-index: 1;
@@ -101,10 +111,8 @@ export default {
     height: 5vw;
     max-height: 70px;
 }
-@media screen and (max-width: 1199px) and (orientation:landscape){
-    .carousel {
-        height: 100vh;
-    }
+#node-container {
+    left: 8px;
 }
 @media screen and (max-width: 1399px) {
     .arrow-img-carousel{
@@ -116,6 +124,11 @@ export default {
     .arrow-img-carousel{
         margin-top: 13vw;
         height: 9vw;
+    }
+}
+@media screen and (max-width: 767px) {
+    #node-container {
+        left: 0px;
     }
 }
 

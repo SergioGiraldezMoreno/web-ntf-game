@@ -1,5 +1,6 @@
 <template>
     <!-- TODO: REPLACE THE SCROLL IMAGE WITH 3 IMGS OF EACH PART SO THE HEAD AND FOOT ARE THE ROLLS AND THE BODY IS THE PAPER -->
+    <!-- TODO: WRONG VISIBILITY IF THE WINDOW HEIGHT CHANGES BUT NOT THE WIDTH -->
     <div class="whitepaper-info-container container p-5 vh-100 d-none d-md-block ">
         <div class="whitepaper-info-subcontainer mx-auto w-75 overflow-auto">
             <h1>WHITEPAPER</h1>
@@ -44,8 +45,8 @@
             <!-- TODO: CONTENT -->
             <p>Here should be just a short message telling the user to read or download the content.</p>
             <!-- TODO: LINK -->
-            <button class="my-1 mx-auto">Read more</button>
-            <button class="mx-auto">Download PDF</button>
+            <button class="mx-auto fw-bold">Read more</button>
+            <button class="mx-auto fw-bold">Download PDF</button>
         </div>
     </div>
 </template>
@@ -64,12 +65,12 @@ export default {
     max-width: 110vh;
 }
 .whitepaper-info-container button {
-    background-color: rgb(61, 32, 12);
-    background-image: linear-gradient(to right, rgb(61, 32, 12), rgb(88, 54, 31) 90%);
+    background-color: rgba(61, 32, 12, 0);
     border-radius: 10px;
     border: 0px;
     padding: 5px 10px;
-    color: rgb(255, 209, 23);
+    color: rgb(61, 32, 12);
+    text-decoration: underline;
     width: 100%;
     max-width: 45vw;
 }
